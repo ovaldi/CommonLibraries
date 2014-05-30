@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F8C95026-C7BC-4354-B5F6-6CAFAE4CB5B8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Kooboo.Common</RootNamespace>
+    <AssemblyName>Kooboo.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.Composition.Registration" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Reflection.Context" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Caching\CacheExpiredNotification.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Caching\CacheManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Caching\CacheManagerFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Caching\INotifyCacheExpired.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Caching\MemoryCacheManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Caching\NullCachedValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Caching\ObjectCacheExtensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collections\CachableDictionary.cs" />
+    <Compile Include="Collections\ComparedResult.cs" />
+    <Compile Include="Collections\DictionaryExtensions.cs" />
+    <Compile Include="Collections\DynamicDictionary.cs" />
+    <Compile Include="Collections\EnumerableExtensions.cs" />
+    <Compile Include="Collections\ListExtensions.cs" />
+    <Compile Include="Collections\Matrix.cs" />
+    <Compile Include="Collections\ReadonlyNameValueCollection.cs" />
+    <Compile Include="ComponentModel\MetadataForAttribute.cs" />
+    <Compile Include="ComponentModel\TypeDescriptorHelper.cs" />
+    <Compile Include="ExtendMethods\IEnumerableExtensions.cs" />
+    <Compile Include="Logging\BuiltinTrace\IMessageFormatter.cs" />
+    <Compile Include="Logging\BuiltinTrace\MessageFormatterHelper.cs" />
+    <Compile Include="Logging\BuiltinTrace\StringMessageFormatter.cs" />
+    <Compile Include="Logging\ILogger.cs" />
+    <Compile Include="Logging\Logger.cs" />
+    <Compile Include="Logging\BuiltinTrace\TraceLogger.cs" />
+    <Compile Include="ObjectContainer\AppDomainTypeFinder.cs" />
+    <Compile Include="ObjectContainer\Dependency\AttributeInfo.cs" />
+    <Compile Include="ObjectContainer\Dependency\ComponentLifeStyle.cs" />
+    <Compile Include="ObjectContainer\Dependency\DependencyAttribute.cs" />
+    <Compile Include="ObjectContainer\Dependency\DependencyAttributeRegistrator.cs" />
+    <Compile Include="ObjectContainer\Dependency\IContainerManager.cs" />
+    <Compile Include="ObjectContainer\Dependency\IDependencyRegistrar.cs" />
+    <Compile Include="ObjectContainer\Dependency\InjectAttribute.cs" />
+    <Compile Include="ObjectContainer\Dependency\IResolvingObserver.cs" />
+    <Compile Include="ObjectContainer\EngineBase.cs" />
+    <Compile Include="ObjectContainer\EngineContext.cs" />
+    <Compile Include="ObjectContainer\IEngine.cs" />
+    <Compile Include="ObjectContainer\IStartupTask.cs" />
+    <Compile Include="ObjectContainer\ITypeFinder.cs" />
+    <Compile Include="ObjectContainer\MEF\CompositionContainerExtensions.cs" />
+    <Compile Include="ObjectContainer\MEF\MEFContainerManager.cs" />
+    <Compile Include="ObjectContainer\MEF\MEFEngine.cs" />
+    <Compile Include="ObjectContainer\MEF\NotSupportedFeaturesException.cs" />
+    <Compile Include="ObjectContainer\MEF\PartBuilderExtensions.cs" />
+    <Compile Include="ObjectContainer\MEF\SupportabilityCheck.cs" />
+    <Compile Include="ObjectContainer\Parameter.cs" />
+    <Compile Include="ObjectContainer\Singleton.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TypeActivator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Misc\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

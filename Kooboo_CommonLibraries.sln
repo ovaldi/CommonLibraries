@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kooboo.Common", "Kooboo.Common\Kooboo.Common.csproj", "{F8C95026-C7BC-4354-B5F6-6CAFAE4CB5B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kooboo.Common.Web", "Kooboo.Common.Web\Kooboo.Common.Web.csproj", "{40290364-5A2B-40AD-97F1-CAAC2C861324}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Kobooo.Common", "Kobooo.Common", "{6D625141-E10E-40EE-8C80-8F8126B5C940}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kooboo.Common.Impl", "Kooboo.Common.Impl\Kooboo.Common.Impl.csproj", "{5642A641-86E7-4509-A075-1C42C0D470B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kooboo.Common.Tests", "Kooboo.Common.Tests\Kooboo.Common.Tests.csproj", "{6F930555-4FB4-4D25-80DD-67EB31C0B6FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F8C95026-C7BC-4354-B5F6-6CAFAE4CB5B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8C95026-C7BC-4354-B5F6-6CAFAE4CB5B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8C95026-C7BC-4354-B5F6-6CAFAE4CB5B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8C95026-C7BC-4354-B5F6-6CAFAE4CB5B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40290364-5A2B-40AD-97F1-CAAC2C861324}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40290364-5A2B-40AD-97F1-CAAC2C861324}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40290364-5A2B-40AD-97F1-CAAC2C861324}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40290364-5A2B-40AD-97F1-CAAC2C861324}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5642A641-86E7-4509-A075-1C42C0D470B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5642A641-86E7-4509-A075-1C42C0D470B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5642A641-86E7-4509-A075-1C42C0D470B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5642A641-86E7-4509-A075-1C42C0D470B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F930555-4FB4-4D25-80DD-67EB31C0B6FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F930555-4FB4-4D25-80DD-67EB31C0B6FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F930555-4FB4-4D25-80DD-67EB31C0B6FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F930555-4FB4-4D25-80DD-67EB31C0B6FB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F8C95026-C7BC-4354-B5F6-6CAFAE4CB5B8} = {6D625141-E10E-40EE-8C80-8F8126B5C940}
+		{5642A641-86E7-4509-A075-1C42C0D470B8} = {6D625141-E10E-40EE-8C80-8F8126B5C940}
+		{6F930555-4FB4-4D25-80DD-67EB31C0B6FB} = {6D625141-E10E-40EE-8C80-8F8126B5C940}
+	EndGlobalSection
+EndGlobal
