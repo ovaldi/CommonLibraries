@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.Composition.Registration" />
@@ -37,6 +38,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Reflection.Context" />
     <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -66,22 +68,62 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Collections\CachableDictionary.cs" />
-    <Compile Include="Collections\ComparedResult.cs" />
-    <Compile Include="Collections\DictionaryExtensions.cs" />
+    <Compile Include="Dynamic\Calculator\CalculateExpression.cs" />
+    <Compile Include="Dynamic\Calculator\Calculator.cs" />
+    <Compile Include="Dynamic\Calculator\Evaluate\Evaluator.cs" />
+    <Compile Include="Dynamic\Calculator\Parser\IIFShortCircuit.cs" />
+    <Compile Include="Dynamic\Calculator\Parser\Token.cs" />
+    <Compile Include="Dynamic\Calculator\Parser\TokenGroup.cs" />
+    <Compile Include="Dynamic\Calculator\Parser\TokenItem.cs" />
+    <Compile Include="Dynamic\Calculator\Parser\TokenItems.cs" />
+    <Compile Include="Dynamic\Calculator\Parser\Tokens.cs" />
+    <Compile Include="Dynamic\Calculator\Parser\Variable.cs" />
+    <Compile Include="Dynamic\Calculator\Parser\Variables.cs" />
+    <Compile Include="Dynamic\Calculator\Support\DataTypeCheck.cs" />
+    <Compile Include="Dynamic\Calculator\Support\ExQueue.cs" />
+    <Compile Include="Dynamic\Calculator\Support\ExStack.cs" />
+    <Compile Include="Dynamic\ExpandoObjectWrapper.cs" />
+    <Compile Include="Dynamic\ReflectionDynamicObject.cs" />
+    <Compile Include="ExtendMethods\ComparedResult.cs" />
     <Compile Include="Collections\DynamicDictionary.cs" />
-    <Compile Include="Collections\EnumerableExtensions.cs" />
-    <Compile Include="Collections\ListExtensions.cs" />
+    <Compile Include="ExtendMethods\ListExtensions.cs" />
     <Compile Include="Collections\Matrix.cs" />
     <Compile Include="Collections\ReadonlyNameValueCollection.cs" />
     <Compile Include="ComponentModel\MetadataForAttribute.cs" />
     <Compile Include="ComponentModel\TypeDescriptorHelper.cs" />
+    <Compile Include="ExtendMethods\DictionaryExtensions.cs" />
     <Compile Include="ExtendMethods\IEnumerableExtensions.cs" />
+    <Compile Include="ExtendMethods\StreamExtensions.cs" />
+    <Compile Include="ExtendMethods\StringExtensions.cs" />
+    <Compile Include="ExtendMethods\TypeExtensions.cs" />
+    <Compile Include="Globalization\CurrencyInfo.cs" />
+    <Compile Include="Globalization\DirectoryCreateException.cs" />
+    <Compile Include="Globalization\Element.cs" />
+    <Compile Include="Globalization\ElementCacheKey.cs" />
+    <Compile Include="Globalization\ElementRepository.cs" />
+    <Compile Include="Globalization\IElementRepository.cs" />
+    <Compile Include="Globalization\LocalizeExtension.cs" />
+    <Compile Include="Globalization\LocalizeHelper.cs" />
+    <Compile Include="Globalization\Repository\CacheElementRepository.cs" />
+    <Compile Include="Globalization\Repository\ResXResource.cs" />
+    <Compile Include="Globalization\Repository\XmlElementRepository.cs" />
+    <Compile Include="IO\IOUtility.cs" />
+    <Compile Include="Job\IJob.cs" />
+    <Compile Include="Job\JobExecutor.cs" />
+    <Compile Include="Job\Jobs.cs" />
+    <Compile Include="Job\TestJob.cs" />
+    <Compile Include="Linq\Dynamic.cs" />
+    <Compile Include="Linq\PredicateBuilder.cs" />
     <Compile Include="Logging\BuiltinTrace\IMessageFormatter.cs" />
     <Compile Include="Logging\BuiltinTrace\MessageFormatterHelper.cs" />
     <Compile Include="Logging\BuiltinTrace\StringMessageFormatter.cs" />
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\Logger.cs" />
     <Compile Include="Logging\BuiltinTrace\TraceLogger.cs" />
+    <Compile Include="Misc\CultureInfoHelper.cs" />
+    <Compile Include="Misc\FileExtensions.cs" />
+    <Compile Include="Misc\RegexPatterns.cs" />
+    <Compile Include="Misc\UniqueIdGenerator.cs" />
     <Compile Include="ObjectContainer\AppDomainTypeFinder.cs" />
     <Compile Include="ObjectContainer\Dependency\AttributeInfo.cs" />
     <Compile Include="ObjectContainer\Dependency\ComponentLifeStyle.cs" />
@@ -105,11 +147,16 @@
     <Compile Include="ObjectContainer\Parameter.cs" />
     <Compile Include="ObjectContainer\Singleton.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflection\MemberException.cs" />
+    <Compile Include="Reflection\MemberNotFoundException.cs" />
+    <Compile Include="Reflection\ObjectExtensions.cs" />
+    <Compile Include="Reflection\PropertyExtensions.cs" />
+    <Compile Include="Misc\DataContractSerializationHelper.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="SR.cs" />
     <Compile Include="TypeActivator.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Misc\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

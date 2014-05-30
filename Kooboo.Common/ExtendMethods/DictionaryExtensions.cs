@@ -6,18 +6,18 @@
 // See the file LICENSE.txt for details.
 // 
 #endregion
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Kooboo.Common.Collections
+namespace System.Collections.Generic
 {
-    /// <summary>
-    /// 
-    /// </summary>
-
     public static class DictionaryExtensions
     {
+        #region ToNameValueCollection
         /// <summary>
         /// To the name value collection.
         /// </summary>
@@ -35,6 +35,9 @@ namespace Kooboo.Common.Collections
             return nameValues;
         }
 
+        #endregion
+
+        #region Merge
         /// <summary>
         /// Merges the specified dic.
         /// </summary>
@@ -72,6 +75,6 @@ namespace Kooboo.Common.Collections
             }
             return source;
         }
-        
+        #endregion
     }
 }

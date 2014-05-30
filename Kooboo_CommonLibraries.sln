@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kooboo.Common.Impl", "Koobo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kooboo.Common.Tests", "Kooboo.Common.Tests\Kooboo.Common.Tests.csproj", "{6F930555-4FB4-4D25-80DD-67EB31C0B6FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kooboo.Common.Windows", "Kooboo.Common.Windows\Kooboo.Common.Windows.csproj", "{A407B6E3-BB45-4126-ADF7-6E582CA85A5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kooboo.Common.Data", "Kooboo.Common.Data\Kooboo.Common.Data.csproj", "{F9E1827B-096D-490B-AF74-11C638F3D0D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +39,14 @@ Global
 		{6F930555-4FB4-4D25-80DD-67EB31C0B6FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F930555-4FB4-4D25-80DD-67EB31C0B6FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F930555-4FB4-4D25-80DD-67EB31C0B6FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A407B6E3-BB45-4126-ADF7-6E582CA85A5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A407B6E3-BB45-4126-ADF7-6E582CA85A5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A407B6E3-BB45-4126-ADF7-6E582CA85A5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A407B6E3-BB45-4126-ADF7-6E582CA85A5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9E1827B-096D-490B-AF74-11C638F3D0D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9E1827B-096D-490B-AF74-11C638F3D0D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9E1827B-096D-490B-AF74-11C638F3D0D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9E1827B-096D-490B-AF74-11C638F3D0D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -8,7 +8,7 @@ namespace Kooboo.Common.Logging
 {
     public static class Logger
     {
-        public readonly static ILogger LoggerInstance = (ILogger)TypeActivator.CreateInstance(typeof(ILogger));
+        public static ILogger LoggerInstance = (ILogger)TypeActivator.CreateInstance(typeof(ILogger));
         public static void Info(object message, Exception ex = null)
         {
             LoggerInstance.Info(message, ex);

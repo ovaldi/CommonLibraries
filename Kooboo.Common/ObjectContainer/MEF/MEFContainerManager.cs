@@ -6,7 +6,7 @@
 // See the file LICENSE.txt for details.
 // 
 #endregion
-using Kooboo.Common.ExtendMethods;
+
 using Kooboo.Common.ObjectContainer.Dependency;
 
 using System;

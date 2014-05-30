@@ -8,7 +8,7 @@
 #endregion
 using System.Collections.Generic;
 
-namespace Kooboo.Common.Collections
+namespace System.Collections.Generic
 {
     /// <summary>
     /// 

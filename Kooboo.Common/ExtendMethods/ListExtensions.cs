@@ -11,10 +11,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Kooboo.Common.Collections
+namespace System.Collections.Generic
 {
     public static class ListExtensions
     {
+        #region Add
         public static List<T> Add<T>(this List<T> list, T item, IEqualityComparer<T> comparer)
         {
             if (!list.Contains(item, comparer))
@@ -22,8 +23,10 @@ namespace Kooboo.Common.Collections
                 list.Add(item);
             }
             return list;
-        }
+        } 
+        #endregion
 
+        #region AddRange
         public static List<T> AddRange<T>(this List<T> list, IEnumerable<T> items, IEqualityComparer<T> comparer)
         {
             foreach (var item in items)
@@ -31,6 +34,7 @@ namespace Kooboo.Common.Collections
                 list.Add(item, comparer);
             }
             return list;
-        }
+        } 
+        #endregion
     }
 }
