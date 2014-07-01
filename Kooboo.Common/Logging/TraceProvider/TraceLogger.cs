@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
-namespace Kooboo.Common.Logging.BuiltinTrace
+namespace Kooboo.Common.Logging.TraceProvider
 {
     [Kooboo.Common.ObjectContainer.Dependency.Dependency(typeof(ILogger), Order = -1)]
     public class TraceLogger : ILogger

@@ -6,18 +6,17 @@
 // See the file LICENSE.txt for details.
 // 
 #endregion
-using Kooboo.Common.ObjectContainer.Dependency;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace Kooboo.Common.Logging.BuiltinTrace
+namespace Kooboo.Common.Web.WebResourceLoader.DynamicClientResource
 {
-    public interface IMessageFormatter
+    public enum ResourceType
     {
-        bool Accpet(object message);
-        string Format(object message, Exception ex);
+        Unspecified,
+        Stylesheet,
+        Javascript
     }
 }

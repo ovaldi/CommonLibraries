@@ -13,11 +13,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Kooboo.Common.Logging.BuiltinTrace;
+using Kooboo.Common.Logging.TraceProvider;
 using System.Diagnostics;
 using System.IO;
 
-namespace Kooboo.Common.Tests.Logging.BuiltinTrace
+namespace Kooboo.Common.Tests.Logging.TraceProvider
 {
     public class StringMessageFormatterMock : IMessageFormatter
     {

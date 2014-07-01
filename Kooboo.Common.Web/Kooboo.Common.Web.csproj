@@ -35,8 +35,11 @@
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.Helpers.dll</HintPath>
@@ -68,9 +71,77 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstractions\HttpApplicationStateBaseWrapper.cs" />
+    <Compile Include="Abstractions\HttpBrowserCapabilitiesBaseWrapper.cs" />
+    <Compile Include="Abstractions\HttpCachePolicyBaseWrapper.cs" />
+    <Compile Include="Abstractions\HttpContextBaseWrapper.cs" />
+    <Compile Include="Abstractions\HttpFileCollectionBaseWrapper.cs" />
+    <Compile Include="Abstractions\HttpRequestBaseWrapper.cs" />
+    <Compile Include="Abstractions\HttpResponseBaseWrapper.cs" />
+    <Compile Include="Abstractions\HttpServerUtilityBaseWrapper.cs" />
+    <Compile Include="Abstractions\HttpSessionStateBaseWrapper.cs" />
+    <Compile Include="Abstractions\HttpStaticObjectsCollectionBaseWrapper.cs" />
+    <Compile Include="ActionResults\JsonpResult.cs" />
+    <Compile Include="ActionResults\JsonTextResult.cs" />
+    <Compile Include="AreaHelpers.cs" />
     <Compile Include="ASPNETApplication.cs" />
+    <Compile Include="ExtensionMethods\HttpResponseExtensions.cs" />
+    <Compile Include="ExtensionMethods\ModelStateDictionaryExtenstions.cs" />
+    <Compile Include="ExtensionMethods\RequestContextExtensions.cs" />
+    <Compile Include="ExtensionMethods\RouteValuesHelpers.cs" />
+    <Compile Include="ExtensionMethods\ViewContextExtensions.cs" />
+    <Compile Include="ExtensionMethods\ViewDataDictionaryExtensions.cs" />
+    <Compile Include="Metadata\KoobooDataAnnotationsModelMetadataProvider.cs" />
+    <Compile Include="Metadata\ModelClientMetadataBuilder.cs" />
+    <Compile Include="Metadata\ModelMetadataExtensions.cs" />
+    <Compile Include="SelectList\AutoCompleteController.cs" />
+    <Compile Include="ExtensionMethods\HtmlExtensions.cs" />
+    <Compile Include="ExtensionMethods\RadioButtonListExtensions.cs" />
+    <Compile Include="ExtensionMethods\ValidationExtensions.cs" />
+    <Compile Include="ExtensionMethods\ValidatorExtensions.cs" />
+    <Compile Include="Grid\Design\GridActionAttribute.cs" />
+    <Compile Include="Grid\Design\GridAttribute.cs" />
+    <Compile Include="Grid\Design\GridColumnAttribute.cs" />
+    <Compile Include="Grid\GridExtensions.cs" />
+    <Compile Include="Grid\GridModel.cs" />
+    <Compile Include="Grid\IGridColumn.cs" />
+    <Compile Include="Grid\IGridItem.cs" />
+    <Compile Include="Grid\IGridItemColumn.cs" />
+    <Compile Include="Grid\IGridModel.cs" />
     <Compile Include="HttpApplicationEvents.cs" />
     <Compile Include="IHttpApplicationEvents.cs" />
+    <Compile Include="Menu\Configuration\MenuItemElement.cs" />
+    <Compile Include="Menu\Configuration\MenuItemElementCollection.cs" />
+    <Compile Include="Menu\Configuration\MenuSection.cs" />
+    <Compile Include="Menu\Configuration\RouteValuesElement.cs" />
+    <Compile Include="Menu\IMenuItem.cs" />
+    <Compile Include="Menu\IMenuItemContainer.cs" />
+    <Compile Include="Menu\IMenuItemInitializer.cs" />
+    <Compile Include="Menu\IMenuItems.cs" />
+    <Compile Include="Menu\IMenuItemStatus.cs" />
+    <Compile Include="Menu\Menu.cs" />
+    <Compile Include="Menu\MenuItem.cs" />
+    <Compile Include="Menu\MenuItemTemplate.cs" />
+    <Compile Include="Metadata\DataSourceAttribute.cs" />
+    <Compile Include="Metadata\KoobooDataAnnotationsModelValidatorProvider.cs" />
+    <Compile Include="Paging\PagedList.cs" />
+    <Compile Include="Paging\PageLinqExtensions.cs" />
+    <Compile Include="Paging\PagerBuilder.cs" />
+    <Compile Include="Paging\PagerHelper.cs" />
+    <Compile Include="Paging\PagerItem.cs" />
+    <Compile Include="Paging\PagerOptions.cs" />
+    <Compile Include="Routing\IgnoreRouteCollection.cs" />
+    <Compile Include="Routing\IgnoreRouteElement.cs" />
+    <Compile Include="Routing\RouteChildElement.cs" />
+    <Compile Include="Routing\RouteCollection.cs" />
+    <Compile Include="Routing\RouteConfigElement.cs" />
+    <Compile Include="Routing\RouteTableRegister.cs" />
+    <Compile Include="Routing\RouteTableSection.cs" />
+    <Compile Include="SelectList\CultureSelectListDataSource.cs" />
+    <Compile Include="SelectList\EmptySelectListDataSource.cs" />
+    <Compile Include="SelectList\EnumTypeSelectListDataSource.cs" />
+    <Compile Include="SelectList\ISelectListDataSource.cs" />
+    <Compile Include="Metadata\KoobooModelMetadata.cs" />
     <Compile Include="ObjectContainer\Mvc\MvcDependencyAttributeFilterProvider.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -82,8 +153,32 @@
     </Compile>
     <Compile Include="ObjectContainer\WebAppTypeFinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SelectList\SelectListExtensions.cs" />
+    <Compile Include="SelectList\SelectListItemEx.cs" />
+    <Compile Include="SelectList\SelectListItemTree.cs" />
+    <Compile Include="TrustLevelUtility.cs" />
+    <Compile Include="UrlUtility.cs" />
+    <Compile Include="WebResourceLoader\ConfigurationManager.cs" />
+    <Compile Include="WebResourceLoader\Configuration\FileCollection.cs" />
+    <Compile Include="WebResourceLoader\Configuration\FileInfoElement.cs" />
+    <Compile Include="WebResourceLoader\Configuration\ReferenceCollection.cs" />
+    <Compile Include="WebResourceLoader\Configuration\ReferenceElement.cs" />
+    <Compile Include="WebResourceLoader\Configuration\WebResourcesSection.cs" />
+    <Compile Include="WebResourceLoader\CssMinify.cs" />
+    <Compile Include="WebResourceLoader\DynamicClientResource\DynamicClientResourceFactory.cs" />
+    <Compile Include="WebResourceLoader\DynamicClientResource\IDynamicClientResource.cs" />
+    <Compile Include="WebResourceLoader\DynamicClientResource\ResourceType.cs" />
+    <Compile Include="WebResourceLoader\JSMinify.cs" />
+    <Compile Include="WebResourceLoader\Mode.cs" />
+    <Compile Include="WebResourceLoader\MvcExtensions.cs" />
+    <Compile Include="WebResourceLoader\WebResourceController.cs" />
+    <Compile Include="WebResourceLoader\WebResourceException.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Kooboo.Common.Data\Kooboo.Common.Data.csproj">
+      <Project>{f9e1827b-096d-490b-af74-11c638f3d0d0}</Project>
+      <Name>Kooboo.Common.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Kooboo.Common\Kooboo.Common.csproj">
       <Project>{f8c95026-c7bc-4354-b5f6-6cafae4cb5b8}</Project>
       <Name>Kooboo.Common</Name>
@@ -92,6 +187,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

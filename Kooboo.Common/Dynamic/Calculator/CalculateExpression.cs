@@ -8,7 +8,7 @@
 #endregion
 using System;
 
-namespace Kooboo.Dynamic.Calculator
+namespace Kooboo.Common.Dynamic.Calculator
 {
     /// <summary>
     /// 

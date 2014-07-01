@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kooboo.Common.Logging.BuiltinTrace
+namespace Kooboo.Common.Logging.TraceProvider
 {
     public static class MessageFormatterHelper
     {

@@ -8,7 +8,7 @@
 #endregion
 using System.Collections.Generic;
 
-namespace Kooboo.Dynamic.Calculator.Parser
+namespace Kooboo.Common.Dynamic.Calculator.Parser
 {
     /// <summary>
     /// 

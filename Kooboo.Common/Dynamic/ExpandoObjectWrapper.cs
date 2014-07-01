@@ -12,7 +12,7 @@ using System.Dynamic;
 using System.Linq;
 using System.Text;
 
-namespace Kooboo.Dynamic
+namespace Kooboo.Common.Dynamic
 {
     public class ExpandoObjectWrapper : DynamicObject
     {
@@ -56,6 +56,10 @@ namespace Kooboo.Dynamic
             return _wrapped.TryGetMember(binder, out result);
 
         }
+        public virtual bool TryGetMember(string name, out object result)
+        {
+            return TryGetMember(new GetMemberBinderWrapper(name), out result);
+        }
         #endregion
 
         #region TryInvokeMember
@@ -92,6 +96,11 @@ namespace Kooboo.Dynamic
                 set = true;
             }
             return true;
+        }
+
+        public virtual bool TrySetMember(string name, object value)
+        {
+            return TrySetMember(new SetMemberBinderWrapper(name), value);
         }
         #endregion
     }

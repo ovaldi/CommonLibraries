@@ -6,10 +6,10 @@
 // See the file LICENSE.txt for details.
 // 
 #endregion
-using Kooboo.Dynamic.Calculator.Evaluate;
-using Kooboo.Dynamic.Calculator.Parser;
+using Kooboo.Common.Dynamic.Calculator.Evaluate;
+using Kooboo.Common.Dynamic.Calculator.Parser;
 
-namespace Kooboo.Dynamic.Calculator
+namespace Kooboo.Common.Dynamic.Calculator
 {
     /// <summary>
     /// 
@@ -24,7 +24,7 @@ namespace Kooboo.Dynamic.Calculator
         /// <returns></returns>
         public static string Calculate(string expression)
         {
-            Token token = new Kooboo.Dynamic.Calculator.Parser.Token(expression);
+            Token token = new Kooboo.Common.Dynamic.Calculator.Parser.Token(expression);
             Evaluator evaluator = new Evaluator(token);
             string value;
             string errorMsg;

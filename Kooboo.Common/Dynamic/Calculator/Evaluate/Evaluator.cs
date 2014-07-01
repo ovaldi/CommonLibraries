@@ -14,7 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Kooboo.Dynamic.Calculator.Evaluate
+namespace Kooboo.Common.Dynamic.Calculator.Evaluate
 {
 
     /// <summary>

@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kooboo.Common.Web", "Kooboo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Kobooo.Common", "Kobooo.Common", "{6D625141-E10E-40EE-8C80-8F8126B5C940}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kooboo.Common.Impl", "Kooboo.Common.Impl\Kooboo.Common.Impl.csproj", "{5642A641-86E7-4509-A075-1C42C0D470B8}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kooboo.Common.Tests", "Kooboo.Common.Tests\Kooboo.Common.Tests.csproj", "{6F930555-4FB4-4D25-80DD-67EB31C0B6FB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kooboo.Common.Windows", "Kooboo.Common.Windows\Kooboo.Common.Windows.csproj", "{A407B6E3-BB45-4126-ADF7-6E582CA85A5D}"
@@ -31,10 +29,6 @@ Global
 		{40290364-5A2B-40AD-97F1-CAAC2C861324}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40290364-5A2B-40AD-97F1-CAAC2C861324}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40290364-5A2B-40AD-97F1-CAAC2C861324}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5642A641-86E7-4509-A075-1C42C0D470B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5642A641-86E7-4509-A075-1C42C0D470B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5642A641-86E7-4509-A075-1C42C0D470B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5642A641-86E7-4509-A075-1C42C0D470B8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6F930555-4FB4-4D25-80DD-67EB31C0B6FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6F930555-4FB4-4D25-80DD-67EB31C0B6FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F930555-4FB4-4D25-80DD-67EB31C0B6FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -53,7 +47,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F8C95026-C7BC-4354-B5F6-6CAFAE4CB5B8} = {6D625141-E10E-40EE-8C80-8F8126B5C940}
-		{5642A641-86E7-4509-A075-1C42C0D470B8} = {6D625141-E10E-40EE-8C80-8F8126B5C940}
 		{6F930555-4FB4-4D25-80DD-67EB31C0B6FB} = {6D625141-E10E-40EE-8C80-8F8126B5C940}
 	EndGlobalSection
 EndGlobal

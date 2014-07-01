@@ -6,7 +6,7 @@
 // See the file LICENSE.txt for details.
 // 
 #endregion
-using Kooboo.Common.Logging.BuiltinTrace;
+using Kooboo.Common.Logging.TraceProvider;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -14,7 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kooboo.Common.Tests.Logging.BuiltinTrace
+namespace Kooboo.Common.Tests.Logging.TraceProvider
 {
     [TestClass]
     public class StringMessageFormatterTests

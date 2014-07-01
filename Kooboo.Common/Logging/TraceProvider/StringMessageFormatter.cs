@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kooboo.Common.Logging.BuiltinTrace
+namespace Kooboo.Common.Logging.TraceProvider
 {
     [Kooboo.Common.ObjectContainer.Dependency.Dependency(typeof(IMessageFormatter), Key = "StringMessageFormatter")]
     public class StringMessageFormatter : IMessageFormatter

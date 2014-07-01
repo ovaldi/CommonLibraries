@@ -13,7 +13,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace Kooboo.Dynamic
+namespace Kooboo.Common.Dynamic
 {
     public class ReflectionDynamicObject : DynamicObject
     {
@@ -56,7 +56,7 @@ namespace Kooboo.Dynamic
                     ? _wrapped as Type
                     : _wrapped.GetType();
             }
-        } 
+        }
         #endregion
 
         #region GetActualType
@@ -64,7 +64,7 @@ namespace Kooboo.Dynamic
         {
             return (t is ParameterInfo)
                         ? (t as ParameterInfo).ParameterType : t.GetType();
-        } 
+        }
         #endregion
 
         #region TryInvokeMember
@@ -89,7 +89,7 @@ namespace Kooboo.Dynamic
                 result = method.Invoke(_wrapped, args);
                 return true;
             }
-        } 
+        }
         #endregion
 
         #region TryGetMember
@@ -121,7 +121,7 @@ namespace Kooboo.Dynamic
                 result = prop.GetValue(_wrapped, null);
                 return true;
             }
-        } 
+        }
         #endregion
 
         #region TrySetMember
@@ -147,7 +147,7 @@ namespace Kooboo.Dynamic
                 prop.SetValue(_wrapped, value, null);
                 return true;
             }
-        } 
+        }
         #endregion
     }
 }

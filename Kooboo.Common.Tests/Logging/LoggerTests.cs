@@ -7,7 +7,7 @@
 // 
 #endregion
 using Kooboo.Common.Logging;
-using Kooboo.Common.Logging.BuiltinTrace;
+using Kooboo.Common.Logging.TraceProvider;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;

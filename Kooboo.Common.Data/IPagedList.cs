@@ -7,6 +7,7 @@
 // 
 #endregion
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,11 +15,20 @@ using System.Threading.Tasks;
 
 namespace Kooboo.Common.Data
 {
+    public interface IPagedList : IEnumerable
+    {
+        int CurrentPageIndex { get; set; }
+        int PageSize { get; set; }
+        int TotalItemCount { get; set; }
+        int TotalPageCount { get; }
+        int StartRecordIndex { get; }
+        int EndRecordIndex { get; }
+    }
     /// <summary>
     /// 
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IPagedList<T> : IEnumerable<T>
+    public interface IPagedList<T> : IPagedList, IEnumerable<T>
     {
         /// <summary>
         /// Gets or sets the index of the current page.

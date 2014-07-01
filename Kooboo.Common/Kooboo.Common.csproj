@@ -35,6 +35,7 @@
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.Composition.Registration" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Reflection.Context" />
     <Reference Include="System.Runtime.Caching" />
@@ -68,6 +69,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Collections\CachableDictionary.cs" />
+    <Compile Include="Configuration\ConfigurationSectionEx.cs" />
     <Compile Include="Dynamic\Calculator\CalculateExpression.cs" />
     <Compile Include="Dynamic\Calculator\Calculator.cs" />
     <Compile Include="Dynamic\Calculator\Evaluate\Evaluator.cs" />
@@ -83,7 +85,9 @@
     <Compile Include="Dynamic\Calculator\Support\ExQueue.cs" />
     <Compile Include="Dynamic\Calculator\Support\ExStack.cs" />
     <Compile Include="Dynamic\ExpandoObjectWrapper.cs" />
+    <Compile Include="Dynamic\GetMemberBinderWrapper.cs" />
     <Compile Include="Dynamic\ReflectionDynamicObject.cs" />
+    <Compile Include="Dynamic\SetMemberBinderWrapper.cs" />
     <Compile Include="ExtendMethods\ComparedResult.cs" />
     <Compile Include="Collections\DynamicDictionary.cs" />
     <Compile Include="ExtendMethods\ListExtensions.cs" />
@@ -114,12 +118,12 @@
     <Compile Include="Job\TestJob.cs" />
     <Compile Include="Linq\Dynamic.cs" />
     <Compile Include="Linq\PredicateBuilder.cs" />
-    <Compile Include="Logging\BuiltinTrace\IMessageFormatter.cs" />
-    <Compile Include="Logging\BuiltinTrace\MessageFormatterHelper.cs" />
-    <Compile Include="Logging\BuiltinTrace\StringMessageFormatter.cs" />
+    <Compile Include="Logging\TraceProvider\IMessageFormatter.cs" />
+    <Compile Include="Logging\TraceProvider\MessageFormatterHelper.cs" />
+    <Compile Include="Logging\TraceProvider\StringMessageFormatter.cs" />
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\Logger.cs" />
-    <Compile Include="Logging\BuiltinTrace\TraceLogger.cs" />
+    <Compile Include="Logging\TraceProvider\TraceLogger.cs" />
     <Compile Include="Misc\CultureInfoHelper.cs" />
     <Compile Include="Misc\FileExtensions.cs" />
     <Compile Include="Misc\RegexPatterns.cs" />

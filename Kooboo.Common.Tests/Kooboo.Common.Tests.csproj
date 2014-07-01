@@ -51,8 +51,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Logging\BuiltinTrace\StringMessageFormatterTests.cs" />
-    <Compile Include="Logging\BuiltinTrace\TraceLoggerTests.cs" />
+    <Compile Include="Logging\TraceProvider\StringMessageFormatterTests.cs" />
+    <Compile Include="Logging\TraceProvider\TraceLoggerTests.cs" />
     <Compile Include="Logging\LoggerTests.cs" />
     <Compile Include="ObjectContainer\MEF\ContainerManagerTests.cs" />
     <Compile Include="ObjectContainer\MEF\MEFEngineTests.cs" />
