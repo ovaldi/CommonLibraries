@@ -17,19 +17,6 @@ namespace Kooboo.Common.Data
 {
     public interface IPagedList : IEnumerable
     {
-        int CurrentPageIndex { get; set; }
-        int PageSize { get; set; }
-        int TotalItemCount { get; set; }
-        int TotalPageCount { get; }
-        int StartRecordIndex { get; }
-        int EndRecordIndex { get; }
-    }
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public interface IPagedList<T> : IPagedList, IEnumerable<T>
-    {
         /// <summary>
         /// Gets or sets the index of the current page.
         /// </summary>
@@ -69,5 +56,13 @@ namespace Kooboo.Common.Data
         /// The end index of the record.
         /// </value>
         int EndRecordIndex { get; }
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public interface IPagedList<T> : IPagedList, IEnumerable<T>
+    {
+        
     }
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>    
+    <licenseUrl>http://kooboo.com/licensefaq</licenseUrl>
+    <projectUrl>https://www.kooboo.com</projectUrl>
+    <iconUrl>http://www.kooboo.com/favicon.ico</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Kooboo common libraries</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright © Yari 2009-2014</copyright>
+    <tags>Kooboo</tags>    
+  </metadata>
+</package>
