@@ -115,6 +115,7 @@
     <Compile Include="Globalization\Repository\ResXResource.cs" />
     <Compile Include="Globalization\Repository\XmlElementRepository.cs" />
     <Compile Include="IO\IOUtility.cs" />
+    <Compile Include="ITimeZoneHelper.cs" />
     <Compile Include="Job\IJob.cs" />
     <Compile Include="Job\JobExecutor.cs" />
     <Compile Include="Job\Jobs.cs" />
@@ -161,6 +162,10 @@
     <Compile Include="Misc\DataContractSerializationHelper.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="SR.cs" />
+    <Compile Include="TokenTemplate\TokenTemplate.cs" />
+    <Compile Include="TokenTemplate\ITokenTemplate.cs" />
+    <Compile Include="TokenTemplate\IValueProvider.cs" />
+    <Compile Include="TokenTemplate\NameValueCollectionProvider.cs" />
     <Compile Include="TypeActivator.cs" />
   </ItemGroup>
   <ItemGroup />
