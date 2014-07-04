@@ -21,13 +21,10 @@ namespace Kooboo.Common.Caching
     /// </summary>
     public static class CacheExpiredNotification
     {
-        #region Properties
-        /// <summary>
-        /// 
-        /// </summary>
-        public static List<INotifyCacheExpired> Notifiactions = new List<INotifyCacheExpired>();
-        #endregion
-
+        private static IEnumerable<ICacheExpiredNotifier> GetNotifiers()
+        {
+            return Kooboo.Common.ObjectContainer.EngineContext.Current.ResolveAll<ICacheExpiredNotifier>();
+        }
         #region Methods
         /// <summary>
         /// Notifies the specified object cache name.
@@ -36,11 +33,12 @@ namespace Kooboo.Common.Caching
         /// <param name="cacheKey">The cache key.</param>
         public static void Notify(string objectCacheName, string cacheKey)
         {
-            if (Notifiactions != null)
+            var notifiers = GetNotifiers();
+            if (notifiers != null)
             {
                 try
                 {
-                    foreach (var item in Notifiactions)
+                    foreach (var item in notifiers)
                     {
                         item.Notify(objectCacheName, cacheKey);
                     }

@@ -12,7 +12,7 @@ namespace Kooboo.Common.Caching
     /// <summary>
     /// 
     /// </summary>
-    public interface INotifyCacheExpired
+    public interface ICacheExpiredNotifier
     {
         /// <summary>
         /// Notifies the specified object cache name.

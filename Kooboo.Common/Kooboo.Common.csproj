@@ -59,7 +59,7 @@
     <Compile Include="Caching\CacheManagerFactory.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Caching\INotifyCacheExpired.cs">
+    <Compile Include="Caching\ICacheExpiredNotifier.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Caching\MemoryCacheManager.cs">
