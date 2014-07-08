@@ -103,6 +103,7 @@
     <Compile Include="ExtendMethods\StreamExtensions.cs" />
     <Compile Include="ExtendMethods\StringExtensions.cs" />
     <Compile Include="ExtendMethods\TypeExtensions.cs" />
+    <Compile Include="ExtendMethods\UriExtensions.cs" />
     <Compile Include="Globalization\CurrencyInfo.cs" />
     <Compile Include="Globalization\DirectoryCreateException.cs" />
     <Compile Include="Globalization\Element.cs" />
@@ -162,8 +163,8 @@
     <Compile Include="Misc\DataContractSerializationHelper.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="SR.cs" />
-    <Compile Include="TokenTemplate\TokenTemplate.cs" />
-    <Compile Include="TokenTemplate\ITokenTemplate.cs" />
+    <Compile Include="TokenTemplate\Template.cs" />
+    <Compile Include="TokenTemplate\ITemplate.cs" />
     <Compile Include="TokenTemplate\IValueProvider.cs" />
     <Compile Include="TokenTemplate\NameValueCollectionProvider.cs" />
     <Compile Include="TypeActivator.cs" />

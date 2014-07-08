@@ -43,7 +43,10 @@
       <Link>AssemblyInfoGlobal.cs</Link>
     </Compile>
     <Compile Include="DataType.cs" />
+    <Compile Include="DataViolation\DataViolationException.cs" />
+    <Compile Include="DataViolation\DataViolationItem.cs" />
     <Compile Include="IPagedList.cs" />
+    <Compile Include="PagedList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

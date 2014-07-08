@@ -13,6 +13,7 @@
 */
 using System.Linq;
 using System.Collections.Generic;
+using Kooboo.Common.Data;
 
 namespace Kooboo.Common.Web.Paging
 {

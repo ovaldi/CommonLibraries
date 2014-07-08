@@ -6,7 +6,7 @@
 // See the file LICENSE.txt for details.
 // 
 #endregion
-using Kooboo.Common.Data;
+
 /*
  ASP.NET MvcPager control
  Copyright:2009-2010 Webdiyer (http://en.webdiyer.com)
@@ -16,7 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Kooboo.Common.Web.Paging
+namespace Kooboo.Common.Data
 {  
     public class PagedList<T> : IEnumerable<T>, IPagedList, IPagedList<T>
     {

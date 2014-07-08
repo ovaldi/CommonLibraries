@@ -86,9 +86,7 @@
     <Compile Include="AreaHelpers.cs" />
     <Compile Include="AreaRegistrationEx.cs" />
     <Compile Include="ASPNETApplication.cs" />
-    <Compile Include="DataViolation\DataViolationException.cs" />
-    <Compile Include="DataViolation\DataViolationItem.cs" />
-    <Compile Include="DataViolation\ModelStateExtension.cs" />
+    <Compile Include="ExtensionMethods\ModelStateExtension.cs" />
     <Compile Include="ExtensionMethods\HttpResponseExtensions.cs" />
     <Compile Include="ExtensionMethods\ModelStateDictionaryExtenstions.cs" />
     <Compile Include="ExtensionMethods\RequestContextExtensions.cs" />
@@ -130,7 +128,6 @@
     <Compile Include="Menu\MenuItemTemplate.cs" />
     <Compile Include="Metadata\DataSourceAttribute.cs" />
     <Compile Include="Metadata\KoobooDataAnnotationsModelValidatorProvider.cs" />
-    <Compile Include="Paging\PagedList.cs" />
     <Compile Include="Paging\PageLinqExtensions.cs" />
     <Compile Include="Paging\PagerBuilder.cs" />
     <Compile Include="Paging\PagerHelper.cs" />
