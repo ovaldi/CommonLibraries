@@ -131,6 +131,7 @@
     <Compile Include="Logging\TraceProvider\TraceLogger.cs" />
     <Compile Include="Misc\CultureInfoHelper.cs" />
     <Compile Include="Misc\FileExtensions.cs" />
+    <Compile Include="Misc\JSMin.cs" />
     <Compile Include="Misc\RegexPatterns.cs" />
     <Compile Include="Misc\UniqueIdGenerator.cs" />
     <Compile Include="ObjectContainer\AppDomainTypeFinder.cs" />
