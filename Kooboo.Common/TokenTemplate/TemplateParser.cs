@@ -18,7 +18,7 @@ namespace Kooboo.Common.TokenTemplate
     /// <summary>    
     /// Refact from Kooboo.CMS.Common.Formula.FormulaParser
     /// </summary>    
-    public class Template : ITemplate
+    public class TemplateParser : ITemplateParser
     {
         public virtual string Merge(string template, IValueProvider valueProvider)
         {

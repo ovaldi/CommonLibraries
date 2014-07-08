@@ -93,6 +93,7 @@
     <Compile Include="ExtensionMethods\RouteValuesHelpers.cs" />
     <Compile Include="ExtensionMethods\ViewContextExtensions.cs" />
     <Compile Include="ExtensionMethods\ViewDataDictionaryExtensions.cs" />
+    <Compile Include="IHtmlStringComparer.cs" />
     <Compile Include="JsonHelper.cs" />
     <Compile Include="JsonResultData.cs" />
     <Compile Include="Metadata\KoobooDataAnnotationsModelMetadataProvider.cs" />

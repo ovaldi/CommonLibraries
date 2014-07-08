@@ -163,8 +163,8 @@
     <Compile Include="Misc\DataContractSerializationHelper.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="SR.cs" />
-    <Compile Include="TokenTemplate\Template.cs" />
-    <Compile Include="TokenTemplate\ITemplate.cs" />
+    <Compile Include="TokenTemplate\TemplateParser.cs" />
+    <Compile Include="TokenTemplate\ITemplateParser.cs" />
     <Compile Include="TokenTemplate\IValueProvider.cs" />
     <Compile Include="TokenTemplate\NameValueCollectionProvider.cs" />
     <Compile Include="TypeActivator.cs" />
