@@ -12,7 +12,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Kooboo common libraries</description>
     <releaseNotes></releaseNotes>
-    <copyright>Copyright © Yari 2009-2014</copyright>
+    <copyright>Copyright © Yardi 2009-2014</copyright>
     <tags>Kooboo</tags>
     <dependencies>
       <dependency id="Microsoft.AspNet.Mvc" version="5.1.2" />
