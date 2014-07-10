@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace System.Web.Mvc
 {
-    public static class ViewContextExtensions
+    public static class ViewContextExtensionMethods
     {
         public static bool IsHandledBy<TController>(this ViewContext context)
         {

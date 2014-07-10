@@ -19,7 +19,7 @@ namespace Kooboo.Common.Web
     public class HttpApplicationEvents : IHttpApplicationEvents
     {
 
-        public virtual void Init(HttpApplication httpApplication)
+        public virtual void Init(HttpApplicationEx httpApplication)
         {
 
         }

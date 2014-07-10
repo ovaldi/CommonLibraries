@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace System.Web.Mvc
 {
-    public static class ViewDataDictionaryExtensions
+    public static class ViewDataDictionaryExtensionMethods
     {
         public static ViewDataDictionary Merge(this ViewDataDictionary source, ViewDataDictionary dic1)
         {

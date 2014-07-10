@@ -16,7 +16,7 @@ using System.Web.Mvc.Html;
 
 namespace System.Web.Mvc
 {
-    public static class RadioButtonListExtensions
+    public static class RadioButtonListExtensionMethods
     {
         public static IHtmlString RadioButtonList(this HtmlHelper helper, string name, IEnumerable<string> items)
         {

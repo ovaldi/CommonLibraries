@@ -15,7 +15,7 @@ using System.Web.Mvc;
 
 namespace System.Web.Mvc
 {
-    public static class ValidatorExtensions
+    public static class ValidatorExtensionMethods
     {
         public static ModelClientValidationRule Remote(string url, string errorMessage = "", string httpMethod = "POST")
         {

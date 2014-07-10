@@ -47,6 +47,7 @@
     <Compile Include="DataViolation\DataViolationItem.cs" />
     <Compile Include="IPagedList.cs" />
     <Compile Include="PagedList.cs" />
+    <Compile Include="PageLinqExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -15,7 +15,7 @@ using System.Web.Mvc;
 
 namespace System.Web.Routing
 {
-    public static class RequestContextExtensions
+    public static class RequestContextExtensionMethods
     {
         /// <summary>
         /// Alls the route values and query string value in current request.

@@ -15,7 +15,7 @@ using System.Web;
 
 namespace System.Web.Mvc
 {
-    public static class HtmlExtensions
+    public static class HtmlExtensionMethods
     {
         /// <summary>
         /// Normalizes a url in the form ~/path/to/resource.aspx.

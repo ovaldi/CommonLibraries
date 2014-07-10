@@ -19,6 +19,7 @@ namespace Kooboo.Common.ObjectContainer
     /// </summary>
     public class EngineContext
     {
+        public static ITypeFinder DefaultTypeFinder = new AppDomainTypeFinder();
         #region Initialization Methods
         /// <summary>Initializes a static instance of the factory.</summary>
         /// <param name="forceRecreate">Creates a new factory instance even though the factory has been previously initialized.</param>
@@ -50,6 +51,7 @@ namespace Kooboo.Common.ObjectContainer
         public static IEngine CreateEngineInstance(ITypeFinder typeFinder)
         {
             var engines = typeFinder.FindClassesOfType<IEngine>().ToArray();
+            engines = engines.Where(it => it != typeof(MEF.MEFEngine)).ToArray();
             if (engines.Length > 0)
             {
                 var defaultEngine = (IEngine)Activator.CreateInstance(engines[0], typeFinder);
@@ -57,7 +59,7 @@ namespace Kooboo.Common.ObjectContainer
             }
             else
             {
-                throw new ApplicationException("Can not found any implementation of IEngine.");
+                return new MEF.MEFEngine(typeFinder);
             }
         }
 
@@ -70,7 +72,7 @@ namespace Kooboo.Common.ObjectContainer
             {
                 if (Singleton<IEngine>.Instance == null)
                 {
-                    Initialize(false, new AppDomainTypeFinder());
+                    Initialize(false, DefaultTypeFinder);
                 }
                 return Singleton<IEngine>.Instance;
             }

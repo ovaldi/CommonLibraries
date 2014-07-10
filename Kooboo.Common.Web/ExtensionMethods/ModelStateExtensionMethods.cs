@@ -15,7 +15,7 @@ using System.Web.Mvc;
 
 namespace System.Web.Mvc
 {
-    public static class ModelStateExtension
+    public static class ModelStateExtensionMethods
     {
         public static void FillDataViolation(this ModelStateDictionary modelState, IEnumerable<DataViolationItem> violations)
         {

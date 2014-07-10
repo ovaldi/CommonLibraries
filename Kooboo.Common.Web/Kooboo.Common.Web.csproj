@@ -85,14 +85,17 @@
     <Compile Include="AggregateHtmlString.cs" />
     <Compile Include="AreaHelpers.cs" />
     <Compile Include="AreaRegistrationEx.cs" />
-    <Compile Include="ASPNETApplication.cs" />
-    <Compile Include="ExtensionMethods\ModelStateExtension.cs" />
-    <Compile Include="ExtensionMethods\HttpResponseExtensions.cs" />
-    <Compile Include="ExtensionMethods\ModelStateDictionaryExtenstions.cs" />
-    <Compile Include="ExtensionMethods\RequestContextExtensions.cs" />
-    <Compile Include="ExtensionMethods\RouteValuesHelpers.cs" />
-    <Compile Include="ExtensionMethods\ViewContextExtensions.cs" />
-    <Compile Include="ExtensionMethods\ViewDataDictionaryExtensions.cs" />
+    <Compile Include="ASPNETApplicationStart.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ExtensionMethods\ModelStateExtensionMethods.cs" />
+    <Compile Include="ExtensionMethods\HttpResponseExtensionMethods.cs" />
+    <Compile Include="ExtensionMethods\ModelStateDictionaryExtenstionMethods.cs" />
+    <Compile Include="ExtensionMethods\RequestContextExtensionMethods.cs" />
+    <Compile Include="ExtensionMethods\RouteValueExtensionMethods.cs" />
+    <Compile Include="ExtensionMethods\ViewContextExtensionMethods.cs" />
+    <Compile Include="ExtensionMethods\ViewDataDictionaryExtensionMethods.cs" />
+    <Compile Include="HttpApplicationEx.cs" />
     <Compile Include="IHtmlStringComparer.cs" />
     <Compile Include="JsonHelper.cs" />
     <Compile Include="JsonResultData.cs" />
@@ -100,10 +103,10 @@
     <Compile Include="Metadata\ModelClientMetadataBuilder.cs" />
     <Compile Include="Metadata\ModelMetadataExtensions.cs" />
     <Compile Include="SelectList\AutoCompleteController.cs" />
-    <Compile Include="ExtensionMethods\HtmlExtensions.cs" />
-    <Compile Include="ExtensionMethods\RadioButtonListExtensions.cs" />
-    <Compile Include="ExtensionMethods\ValidationExtensions.cs" />
-    <Compile Include="ExtensionMethods\ValidatorExtensions.cs" />
+    <Compile Include="ExtensionMethods\HtmlExtensionMethods.cs" />
+    <Compile Include="ExtensionMethods\RadioButtonListExtensionMethods.cs" />
+    <Compile Include="ExtensionMethods\ValidationExtensionMethods.cs" />
+    <Compile Include="ExtensionMethods\ValidatorExtensionMethods.cs" />
     <Compile Include="Grid\Design\GridActionAttribute.cs" />
     <Compile Include="Grid\Design\GridAttribute.cs" />
     <Compile Include="Grid\Design\GridColumnAttribute.cs" />
@@ -129,7 +132,6 @@
     <Compile Include="Menu\MenuItemTemplate.cs" />
     <Compile Include="Metadata\DataSourceAttribute.cs" />
     <Compile Include="Metadata\KoobooDataAnnotationsModelValidatorProvider.cs" />
-    <Compile Include="Paging\PageLinqExtensions.cs" />
     <Compile Include="Paging\PagerBuilder.cs" />
     <Compile Include="Paging\PagerHelper.cs" />
     <Compile Include="Paging\PagerItem.cs" />
@@ -163,6 +165,17 @@
     <Compile Include="TokenTemplate\MvcValueProvider.cs" />
     <Compile Include="TrustLevelUtility.cs" />
     <Compile Include="UrlUtility.cs" />
+    <Compile Include="WebLogging\EventType.cs" />
+    <Compile Include="WebLogging\WebBaseExceptionEventWrapper.cs" />
+    <Compile Include="WebLogging\WebBaseEventWrapper.cs" />
+    <Compile Include="WebLogging\WebEventFieldData.cs" />
+    <Compile Include="WebLogging\WebEventFieldType.cs" />
+    <Compile Include="WebLogging\WebEventFormatter.cs" />
+    <Compile Include="WebLogging\WebEventFormatterExtensions.cs" />
+    <Compile Include="WebLogging\WebLogger.cs" />
+    <Compile Include="WebLogging\WebRequestEventWrapper.cs" />
+    <Compile Include="WebLogging\WebRequestInformation.cs" />
+    <Compile Include="WebLogging\WebThreadInformation.cs" />
     <Compile Include="WebResourceLoader\ConfigurationManager.cs" />
     <Compile Include="WebResourceLoader\Configuration\FileCollection.cs" />
     <Compile Include="WebResourceLoader\Configuration\FileInfoElement.cs" />

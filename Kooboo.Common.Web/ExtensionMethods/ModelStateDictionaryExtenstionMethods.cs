@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace System.Web.Mvc
 {
-    public static class ModelStateDictionaryExtenstions
+    public static class ModelStateDictionaryExtenstionMethods
     {
         public static List<string> GetErrorMessages(this ModelStateDictionary modelStates)
         {

@@ -18,7 +18,7 @@ namespace Kooboo.Common.Web
 {
     public interface IHttpApplicationEvents
     {
-        void Init(HttpApplication httpApplication);
+        void Init(HttpApplicationEx httpApplication);
         void Application_Start(object sender, EventArgs e);
         void Application_End(object sender, EventArgs e);
         void Application_AuthenticateRequest(object sender, EventArgs e);

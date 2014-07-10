@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace System.Web.Routing
 {
-    public static class RouteValuesHelpers
+    public static class RouteValueExtensionMethods
     {
         // Methods
         public static RouteValueDictionary GetRouteValues(RouteValueDictionary routeValues)

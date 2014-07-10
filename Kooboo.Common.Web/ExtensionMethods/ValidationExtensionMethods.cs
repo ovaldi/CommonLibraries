@@ -18,7 +18,7 @@ using System.Web.Routing;
 
 namespace System.Web.Mvc
 {
-    public static class ValidationExtensions
+    public static class ValidationExtensionMethods
     {
         #region ValidationMessage
         private static FieldValidationMetadata ApplyFieldValidationMetadata(HtmlHelper htmlHelper, ModelMetadata modelMetadata, string modelName)
