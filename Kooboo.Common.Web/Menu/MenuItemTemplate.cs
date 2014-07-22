@@ -19,19 +19,14 @@ namespace Kooboo.Common.Web.Menu
     {
         public IEnumerable<IMenuItemContainer> ItemContainers { get; set; }
 
-        public virtual void Initialize(MenuItem menuItem, ControllerContext controllerContext)
-        {
-            Initializer.Initialize(menuItem, controllerContext);
-        }
-
         public virtual IEnumerable<MenuItem> GetItems(string areaName, ControllerContext controllerContext)
         {
             List<MenuItem> items = new List<MenuItem>();
-            items.Add(CreateMenuItemByTemplate(areaName, this, controllerContext));
+            items.Add(BuildItems(areaName, this, controllerContext));
             return items;
         }
 
-        private MenuItem CreateMenuItemByTemplate(string areaName, MenuItemTemplate template, ControllerContext controllerContext)
+        private MenuItem BuildItems(string areaName, MenuItemTemplate template, ControllerContext controllerContext)
         {
             MenuItem item = new MenuItem()
             {

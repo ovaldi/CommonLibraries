@@ -6,6 +6,8 @@
 // See the file LICENSE.txt for details.
 // 
 #endregion
+using Kooboo.Common;
+using Kooboo.Common.Web.Metadata;
 using Kooboo.Common.Web.SelectList;
 using System;
 using System.Collections.Generic;
@@ -13,7 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Web.Mvc;
 
-namespace Kooboo.Common.Web.Metadata
+namespace System.Web.Mvc
 {   
     public static class ModelMetadataExtensions
     {

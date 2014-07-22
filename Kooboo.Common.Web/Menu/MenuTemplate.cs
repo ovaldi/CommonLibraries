@@ -10,12 +10,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Web.Mvc;
+using System.Threading.Tasks;
 
 namespace Kooboo.Common.Web.Menu
 {
-    public interface IMenuItemContainer
+    public class MenuTemplate
     {
-        IEnumerable<MenuItem> GetItems(string areaName, ControllerContext controllerContext);
-    }
+        public IEnumerable<IMenuItemContainer> ItemContainers { get; set; }
+    }   
 }

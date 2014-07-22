@@ -75,6 +75,21 @@ namespace System.Collections.Generic
             }
             return source;
         }
+
+        public static IDictionary<TKey, TValue> Merge<TKey, TValue>(this IDictionary<TKey, TValue> source, IDictionary<TKey, TValue> dic1, bool ignoreNull = false)
+        {
+            if (dic1 != null)
+            {
+                foreach (var item in dic1)
+                {
+                    if (item.Value != null || (item.Value == null && ignoreNull == false))
+                    {
+                        source[item.Key] = item.Value;
+                    }
+                }
+            }
+            return source;
+        }
         #endregion
     }
 }

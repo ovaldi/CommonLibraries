@@ -19,8 +19,15 @@ namespace Kooboo.Common.Web.Menu
     public class MenuItem
     {
         public MenuItem()
+            : this(null)
+        { }
+        public MenuItem(string name)
         {
+            this.Name = name;
             Items = new List<MenuItem>();
+            RouteValues = new RouteValueDictionary();
+            HtmlAttributes = new RouteValueDictionary();
+
             Visible = true;
         }
 
@@ -34,7 +41,7 @@ namespace Kooboo.Common.Web.Menu
 
         private bool localizable = true;
         public virtual bool Localizable { get { return localizable; } set { localizable = value; } }
-        
+
         public string Tips { get; set; }
 
         public RouteValueDictionary RouteValues { get; set; }
