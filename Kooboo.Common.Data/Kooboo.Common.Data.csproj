@@ -46,9 +46,19 @@
     <Compile Include="DataViolation\DataViolationException.cs" />
     <Compile Include="DataViolation\DataViolationItem.cs" />
     <Compile Include="IPagedList.cs" />
+    <Compile Include="IsolatedStorage\DiskIsloateStorage.cs" />
+    <Compile Include="IsolatedStorage\IIsolatedStorage.cs" />
+    <Compile Include="IsolatedStorage\IsolatedStorageFile.cs" />
+    <Compile Include="IsolatedStorage\IsolatedStorageFileStream.cs" />
     <Compile Include="PagedList.cs" />
     <Compile Include="PageLinqExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kooboo.Common\Kooboo.Common.csproj">
+      <Project>{f8c95026-c7bc-4354-b5f6-6cafae4cb5b8}</Project>
+      <Name>Kooboo.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
