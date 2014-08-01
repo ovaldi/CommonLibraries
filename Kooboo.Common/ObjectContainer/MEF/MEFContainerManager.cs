@@ -212,5 +212,13 @@ namespace Kooboo.Common.ObjectContainer.MEF
             }
         }
         #endregion
+
+
+        #region ResolveGeneric
+        public object ResolveGeneric(Type genericType, params Type[] genericTypeParameters)
+        {
+            throw new NotSupportedException();
+        }
+        #endregion
     }
 }

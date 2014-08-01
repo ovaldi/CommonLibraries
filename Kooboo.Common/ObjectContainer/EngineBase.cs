@@ -147,5 +147,11 @@ namespace Kooboo.Common.ObjectContainer
 
         #endregion
 
+        #region ResolveGeneric
+        public object ResolveGeneric(Type genericType, Type[] genericTypeParameters)
+        {
+            return ContainerManager.ResolveGeneric(genericType, genericTypeParameters);
+        }
+        #endregion
     }
 }

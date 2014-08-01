@@ -61,6 +61,10 @@ namespace Kooboo.Common.ObjectContainer.Dependency
         object Resolve(Type type, string key = "", params Parameter[] parameters);
         #endregion
 
+        #region ResolveGeneric
+        object ResolveGeneric(Type genericType, params Type[] genericTypeParameters);
+        #endregion
+
         #region ResolveAll
         T[] ResolveAll<T>(string key = "");
         object[] ResolveAll(Type type, string key = "");
@@ -80,7 +84,7 @@ namespace Kooboo.Common.ObjectContainer.Dependency
         #endregion
 
         #region InjectProperties
-        void InjectProperties(object instance); 
+        void InjectProperties(object instance);
         #endregion
     }
 }

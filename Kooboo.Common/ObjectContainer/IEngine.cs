@@ -30,6 +30,13 @@ namespace Kooboo.Common.ObjectContainer
         object Resolve(Type type, params Parameter[] parameters);
 
         object Resolve(Type type, string name, params Parameter[] parameters);
+
+
+
+        #endregion
+
+        #region ResolveGeneric
+        object ResolveGeneric(Type genericType, params Type[] genericTypeParameters);
         #endregion
 
         #region TryResolve
