@@ -83,6 +83,7 @@
     <Compile Include="ActionResults\JsonpResult.cs" />
     <Compile Include="ActionResults\JsonTextResult.cs" />
     <Compile Include="AggregateHtmlString.cs" />
+    <Compile Include="ApplyToMatcher.cs" />
     <Compile Include="AreaHelpers.cs" />
     <Compile Include="AreaRegistrationEx.cs" />
     <Compile Include="ASPNETApplicationStart.cs">
@@ -97,6 +98,8 @@
     <Compile Include="ExtensionMethods\ViewContextExtensionMethods.cs" />
     <Compile Include="ExtensionMethods\ViewDataDictionaryExtensionMethods.cs" />
     <Compile Include="HttpApplicationEx.cs" />
+    <Compile Include="IApplyTo.cs" />
+    <Compile Include="IApplyToMatcher.cs" />
     <Compile Include="IHtmlStringComparer.cs" />
     <Compile Include="JsonHelper.cs" />
     <Compile Include="JsonResultData.cs" />
@@ -107,6 +110,7 @@
     <Compile Include="Metadata\ModelClientMetadataBuilder.cs" />
     <Compile Include="Metadata\ModelMetadataExtensions.cs" />
     <Compile Include="ModelBindHelper.cs" />
+    <Compile Include="MvcRoute.cs" />
     <Compile Include="SelectList\AutoCompleteController.cs" />
     <Compile Include="ExtensionMethods\HtmlExtensionMethods.cs" />
     <Compile Include="ExtensionMethods\RadioButtonListExtensionMethods.cs" />
@@ -166,7 +170,17 @@
     <Compile Include="SelectList\SelectListExtensions.cs" />
     <Compile Include="SelectList\SelectListItemEx.cs" />
     <Compile Include="SelectList\SelectListItemTree.cs" />
+    <Compile Include="FormTab\IFormTabPlugin.cs" />
+    <Compile Include="FormTab\IFormTabPluginLoader.cs" />
+    <Compile Include="FormTab\LoadedFormTabPlugin.cs" />
+    <Compile Include="FormTab\FormTabContext.cs" />
+    <Compile Include="FormTab\FormTabPluginLoader.cs" />
+    <Compile Include="FormTab\FormTabSubmitContext.cs" />
     <Compile Include="TokenTemplate\MvcValueProvider.cs" />
+    <Compile Include="Button\IButtonPlugin.cs" />
+    <Compile Include="Button\IButtonPluginExecutor.cs" />
+    <Compile Include="Button\ButtonPluginContext.cs" />
+    <Compile Include="Button\ButtonPluginExecutor.cs" />
     <Compile Include="TrustLevelUtility.cs" />
     <Compile Include="UrlUtility.cs" />
     <Compile Include="WebLogging\EventType.cs" />
