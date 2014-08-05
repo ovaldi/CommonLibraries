@@ -46,7 +46,7 @@
     <Compile Include="DataViolation\DataViolationException.cs" />
     <Compile Include="DataViolation\DataViolationItem.cs" />
     <Compile Include="IPagedList.cs" />
-    <Compile Include="IsolatedStorage\DiskIsloateStorage.cs" />
+    <Compile Include="IsolatedStorage\DiskIsolateStorage.cs" />
     <Compile Include="IsolatedStorage\IIsolatedStorage.cs" />
     <Compile Include="IsolatedStorage\IsolatedStorageFile.cs" />
     <Compile Include="IsolatedStorage\IsolatedStorageFileStream.cs" />

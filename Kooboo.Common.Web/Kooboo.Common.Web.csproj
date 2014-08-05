@@ -89,6 +89,10 @@
     <Compile Include="ASPNETApplicationStart.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Button\DependencyRegistrar.cs" />
+    <Compile Include="Button\GroupedButton.cs" />
+    <Compile Include="Button\IButton.cs" />
+    <Compile Include="Button\IButtonGroup.cs" />
     <Compile Include="DynamicViewDataDictionary.cs" />
     <Compile Include="ExtensionMethods\ModelStateExtensionMethods.cs" />
     <Compile Include="ExtensionMethods\HttpResponseExtensionMethods.cs" />

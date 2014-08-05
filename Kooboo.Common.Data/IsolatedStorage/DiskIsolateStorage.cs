@@ -16,13 +16,13 @@ using System.Threading.Tasks;
 
 namespace Kooboo.Common.Data.IsolatedStorage
 {
-    public class DiskIsloateStorage : IIsolatedStorage
+    public class DiskIsolateStorage : IIsolatedStorage
     {
         #region .ctor
         private string baseDirectory;
 
         private string physicalPath;
-        public DiskIsloateStorage(string name, string baseDirectory)
+        public DiskIsolateStorage(string name, string baseDirectory)
         {
             this.Name = name;
             this.baseDirectory = baseDirectory;
@@ -100,6 +100,7 @@ namespace Kooboo.Common.Data.IsolatedStorage
 
             stream.Position = 0;
             stream.CopyTo(fileStream);
+            fileStream.Close();
         }
 
         public void DeleteDirectory(string dir)
@@ -156,7 +157,16 @@ namespace Kooboo.Common.Data.IsolatedStorage
             }
             if (Directory.Exists(this.physicalPath))
             {
-                var dirs = Directory.EnumerateDirectories(fullPath, searchPattern);
+                IEnumerable<string> dirs;
+                if (string.IsNullOrEmpty(searchPattern))
+                {
+                    dirs = Directory.EnumerateDirectories(fullPath);
+                }
+                else
+                {
+                    dirs = Directory.EnumerateDirectories(fullPath, searchPattern);
+                }
+
 
                 return dirs.Select(it => it.Substring(fullPath.Length)).ToArray();
             }
@@ -177,7 +187,16 @@ namespace Kooboo.Common.Data.IsolatedStorage
             }
             if (Directory.Exists(this.physicalPath))
             {
-                var dirs = Directory.EnumerateFiles(fullPath, searchPattern);
+                IEnumerable<string> dirs;
+                if (string.IsNullOrEmpty(searchPattern))
+                {
+                    dirs = Directory.EnumerateFiles(fullPath);
+                }
+                else
+                {
+                    dirs = Directory.EnumerateFiles(fullPath, searchPattern);
+                }
+
 
                 return dirs.Select(it => it.Substring(fullPath.Length)).ToArray();
             }
@@ -244,10 +263,12 @@ namespace Kooboo.Common.Data.IsolatedStorage
 
             var storageFileStream = new IsolatedStorageFileStream();
             storageFileStream.StorageFile = new IsolatedStorageFile(Path.GetFileName(path), path, this.Name);
-            var fileStream = File.Open(fullPath, mode);
-            var memoryStream = new MemoryStream();
-            fileStream.CopyTo(memoryStream);
-            storageFileStream.Stream = memoryStream;
+            using (var fileStream = File.Open(fullPath, mode, access, share))
+            {
+                var memoryStream = new MemoryStream();
+                fileStream.CopyTo(memoryStream);
+                storageFileStream.Stream = memoryStream;
+            }
             return storageFileStream;
         }
 
@@ -258,7 +279,8 @@ namespace Kooboo.Common.Data.IsolatedStorage
             using (storageFileStream.Stream)
             {
                 var fileStream = File.Open(fullPath, FileMode.OpenOrCreate);
-                fileStream.CopyTo(fileStream);
+                storageFileStream.Stream.Position = 0;
+                storageFileStream.Stream.CopyTo(fileStream);
                 fileStream.Close();
             }
         }
