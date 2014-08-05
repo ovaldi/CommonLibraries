@@ -11,14 +11,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.Mvc;
 
 namespace Kooboo.Common.Web.Button
 {
-    public interface IButtonPluginExecutor
-    {
-        IEnumerable<GroupedButton> LoadButtons(ControllerContext controllerContext);
-
-        ActionResult Execute(ControllerContext controllerContext, string pluginName);
+    public interface IButtonGroup : IButton, IApplyTo
+    {      
     }
 }

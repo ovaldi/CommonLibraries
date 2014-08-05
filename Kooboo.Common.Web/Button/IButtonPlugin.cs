@@ -16,39 +16,17 @@ using System.Web.Routing;
 
 namespace Kooboo.Common.Web.Button
 {
-    public interface IButtonPlugin : IApplyTo
+    public interface IButtonPlugin : IButton, IApplyTo
     {
-        string Name { get; }
-
-        string DisplayText { get; }
-
         Type OptionModelType { get; }
-
-        string IconClass { get; }
 
         string GroupName { get; }
 
-        int Order { get; }
-
         /// <summary>
-        /// CommandTarget==null 是，托管提交动作
+        /// GetMvcRoute==null 是，托管提交动作
         /// 否则，生成一个提交地址
         /// </summary>
         MvcRoute GetMvcRoute(ControllerContext controllerContext);
-
-        /// <summary>
-        /// 获得将要生成的Button的HTML 标签
-        /// </summary>
-        /// <param name="controllerContext"></param>
-        /// <returns></returns>
-        IDictionary<string, object> HtmlAttributes(ControllerContext controllerContext);
-
-        /// <summary>
-        /// 某条数据是否显示Button
-        /// </summary>
-        /// <param name="dataItem"></param>
-        /// <returns></returns>
-        bool IsVisibleFor(object dataItem);
 
         /// <summary>
         /// 执行Topbar plugin

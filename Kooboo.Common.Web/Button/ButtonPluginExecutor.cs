@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace Kooboo.Common.Web.Button
@@ -21,11 +22,13 @@ namespace Kooboo.Common.Web.Button
     public class ButtonPluginExecutor : IButtonPluginExecutor
     {
         #region .ctor
+        IEnumerable<IButtonGroup> groups;
         IEnumerable<IButtonPlugin> buttonPlugins;
         IApplyToMatcher applyToMatcher;
-        public ButtonPluginExecutor(IEnumerable<IButtonPlugin> buttonPlugins, IApplyToMatcher applyToMatcher)
+        public ButtonPluginExecutor(IEnumerable<IButtonGroup> groups, IEnumerable<IButtonPlugin> buttonPlugins, IApplyToMatcher applyToMatcher)
         {
-            this.buttonPlugins = buttonPlugins;
+            this.groups = groups ?? new IButtonGroup[0];
+            this.buttonPlugins = buttonPlugins ?? new IButtonPlugin[0];
             this.applyToMatcher = applyToMatcher;
         }
         #endregion
@@ -34,6 +37,10 @@ namespace Kooboo.Common.Web.Button
         protected virtual IEnumerable<IButtonPlugin> MatchButtonPlugins(RouteData route)
         {
             return this.applyToMatcher.Match(this.buttonPlugins, route);
+        }
+        protected virtual IEnumerable<IButtonGroup> MatchButtonGroups(RouteData route)
+        {
+            return this.applyToMatcher.Match(this.groups, route);
         }
         #endregion
 
@@ -59,11 +66,30 @@ namespace Kooboo.Common.Web.Button
         #endregion
 
         #region LoadTopBarPlugins
-        public IEnumerable<IButtonPlugin> LoadButtonPlugins(System.Web.Mvc.ControllerContext controllerContext)
+        public IEnumerable<GroupedButton> LoadButtons(ControllerContext controllerContext)
         {
-            var matchedPlugins = MatchButtonPlugins(controllerContext.RouteData);
+            var matchedButtonPlugins = MatchButtonPlugins(controllerContext.RouteData);
 
-            return matchedPlugins;
+            var matchButtonGroups = MatchButtonGroups(controllerContext.RouteData);
+
+            var groupedList = new List<GroupedButton>();
+
+            foreach (var group in matchButtonGroups)
+            {
+                var buttonsInGroup = matchedButtonPlugins
+                    .Where(it => !string.IsNullOrEmpty(it.GroupName) && it.GroupName.EqualsOrNullEmpty(group.Name, StringComparison.OrdinalIgnoreCase))
+                    .OrderBy(it => it.Order)
+                    .ToArray();
+
+                var groupedButton = new GroupedButton(group, buttonsInGroup);
+
+                groupedList.Add(groupedButton);
+            }
+
+            groupedList.AddRange(matchedButtonPlugins.Where(it => string.IsNullOrEmpty(it.GroupName)).Select(it => new GroupedButton(it, null)));
+
+            return groupedList.OrderBy(it => it.Group.Order).ToArray();
+
         }
         #endregion
     }
