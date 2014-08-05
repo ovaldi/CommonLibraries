@@ -140,6 +140,7 @@
     <Compile Include="ObjectContainer\Dependency\DependencyAttribute.cs" />
     <Compile Include="ObjectContainer\Dependency\DependencyAttributeRegistrator.cs" />
     <Compile Include="ObjectContainer\Dependency\IContainerManager.cs" />
+    <Compile Include="ObjectContainer\Dependency\IContainerManagerExtensions.cs" />
     <Compile Include="ObjectContainer\Dependency\IDependencyRegistrar.cs" />
     <Compile Include="ObjectContainer\Dependency\InjectAttribute.cs" />
     <Compile Include="ObjectContainer\Dependency\IResolvingObserver.cs" />
