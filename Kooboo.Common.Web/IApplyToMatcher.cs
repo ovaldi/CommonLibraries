@@ -17,7 +17,7 @@ namespace Kooboo.Common.Web
 {
     public interface IApplyToMatcher
     {
-        IEnumerable<T> Match<T>(IEnumerable<T> applyToItems, RouteData route)
+        IEnumerable<T> Match<T>(IEnumerable<T> applyToItems, RouteData route, string position = null)
         where T : IApplyTo;
     }
 }

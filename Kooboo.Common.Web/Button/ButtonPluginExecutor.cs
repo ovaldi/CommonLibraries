@@ -34,20 +34,20 @@ namespace Kooboo.Common.Web.Button
         #endregion
 
         #region MatchTopBarPlugins
-        protected virtual IEnumerable<IButtonPlugin> MatchButtonPlugins(RouteData route)
+        protected virtual IEnumerable<IButtonPlugin> MatchButtonPlugins(RouteData route, string position)
         {
-            return this.applyToMatcher.Match(this.buttonPlugins, route);
+            return this.applyToMatcher.Match(this.buttonPlugins, route, position);
         }
-        protected virtual IEnumerable<IButtonGroup> MatchButtonGroups(RouteData route)
+        protected virtual IEnumerable<IButtonGroup> MatchButtonGroups(RouteData route, string position)
         {
-            return this.applyToMatcher.Match(this.groups, route);
+            return this.applyToMatcher.Match(this.groups, route, position);
         }
         #endregion
 
         #region Execute
-        public System.Web.Mvc.ActionResult Execute(System.Web.Mvc.ControllerContext controllerContext, string pluginName)
+        public System.Web.Mvc.ActionResult Execute(System.Web.Mvc.ControllerContext controllerContext, string pluginName, string position = null)
         {
-            var executingPlugin = MatchButtonPlugins(controllerContext.RequestContext.RouteData).Where(it => it.Name.EqualsOrNullEmpty(pluginName, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+            var executingPlugin = MatchButtonPlugins(controllerContext.RequestContext.RouteData, position).Where(it => it.Name.EqualsOrNullEmpty(pluginName, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
             if (executingPlugin != null)
             {
                 object optionModel = null;
@@ -66,11 +66,11 @@ namespace Kooboo.Common.Web.Button
         #endregion
 
         #region LoadTopBarPlugins
-        public IEnumerable<GroupedButton> LoadButtons(ControllerContext controllerContext)
+        public IEnumerable<GroupedButton> LoadButtons(ControllerContext controllerContext, string position = null)
         {
-            var matchedButtonPlugins = MatchButtonPlugins(controllerContext.RouteData);
+            var matchedButtonPlugins = MatchButtonPlugins(controllerContext.RouteData, position);
 
-            var matchButtonGroups = MatchButtonGroups(controllerContext.RouteData);
+            var matchButtonGroups = MatchButtonGroups(controllerContext.RouteData, position);
 
             var groupedList = new List<GroupedButton>();
 

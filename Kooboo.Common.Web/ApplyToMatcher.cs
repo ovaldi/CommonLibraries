@@ -19,7 +19,7 @@ namespace Kooboo.CMS.Common.Extension
     [Dependency(typeof(IApplyToMatcher))]
     public class ApplyToMatcher : IApplyToMatcher
     {
-        public IEnumerable<T> Match<T>(IEnumerable<T> applyToItems, System.Web.Routing.RouteData route)
+        public IEnumerable<T> Match<T>(IEnumerable<T> applyToItems, System.Web.Routing.RouteData route, string position = null)
             where T : IApplyTo
         {
             if (applyToItems == null)
@@ -30,10 +30,11 @@ namespace Kooboo.CMS.Common.Extension
             var controller = route.Values["controller"].ToString();
             var action = route.Values["action"].ToString();
 
-            return applyToItems.Where(it => it.ApplyTo == null
+            return applyToItems.Where(it => ((string.IsNullOrEmpty(position) && string.IsNullOrEmpty(it.Position)) || position.EqualsOrNullEmpty(it.Position, StringComparison.OrdinalIgnoreCase)) &&
+                (it.ApplyTo == null
                 || it.ApplyTo.Any(at => at.Area.EqualsOrNullEmpty(area, StringComparison.OrdinalIgnoreCase)
                 && at.Controller.Equals(controller, StringComparison.OrdinalIgnoreCase)
-                && at.Action.EqualsOrNullEmpty(action, StringComparison.OrdinalIgnoreCase))).ToArray();
+                && at.Action.EqualsOrNullEmpty(action, StringComparison.OrdinalIgnoreCase)))).ToArray();
         }
     }
 }

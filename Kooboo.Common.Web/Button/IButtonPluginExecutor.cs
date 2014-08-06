@@ -17,8 +17,8 @@ namespace Kooboo.Common.Web.Button
 {
     public interface IButtonPluginExecutor
     {
-        IEnumerable<GroupedButton> LoadButtons(ControllerContext controllerContext);
+        IEnumerable<GroupedButton> LoadButtons(ControllerContext controllerContext, string position = null);
 
-        ActionResult Execute(ControllerContext controllerContext, string pluginName);
+        ActionResult Execute(ControllerContext controllerContext, string pluginName, string position = null);
     }
 }
