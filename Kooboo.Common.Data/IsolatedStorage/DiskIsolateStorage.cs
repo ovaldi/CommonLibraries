@@ -19,15 +19,12 @@ namespace Kooboo.Common.Data.IsolatedStorage
     public class DiskIsolateStorage : IIsolatedStorage
     {
         #region .ctor
-        private string baseDirectory;
+        private string storagePath;
 
-        private string physicalPath;
-        public DiskIsolateStorage(string name, string baseDirectory)
+        public DiskIsolateStorage(string name, string storagePath)
         {
             this.Name = name;
-            this.baseDirectory = baseDirectory;
-
-            this.physicalPath = Path.Combine(this.baseDirectory, name);
+            this.storagePath = storagePath;
         }
         #endregion
 
@@ -56,17 +53,17 @@ namespace Kooboo.Common.Data.IsolatedStorage
 
         public void InitStore()
         {
-            if (!Directory.Exists(physicalPath))
+            if (!Directory.Exists(storagePath))
             {
-                Directory.CreateDirectory(physicalPath);
+                Directory.CreateDirectory(storagePath);
             }
         }
 
         public void Remove()
         {
-            if (Directory.Exists(physicalPath))
+            if (Directory.Exists(storagePath))
             {
-                IOUtility.DeleteDirectory(this.physicalPath, true);
+                IOUtility.DeleteDirectory(this.storagePath, true);
             }
         }
 
@@ -77,15 +74,15 @@ namespace Kooboo.Common.Data.IsolatedStorage
 
         public void CopyFile(string sourceFileName, string destinationFileName, bool overwrite)
         {
-            string fullSourceFileName = Path.Combine(this.physicalPath, sourceFileName);
-            string fullDestionationFileName = Path.Combine(this.physicalPath, destinationFileName);
+            string fullSourceFileName = Path.Combine(this.storagePath, sourceFileName);
+            string fullDestionationFileName = Path.Combine(this.storagePath, destinationFileName);
 
             File.Copy(fullSourceFileName, fullDestionationFileName, overwrite);
         }
 
         public void CreateDirectory(string dir)
         {
-            var physicalPath = Path.Combine(this.physicalPath, dir);
+            var physicalPath = Path.Combine(this.storagePath, dir);
             if (!Directory.Exists(physicalPath))
             {
                 Directory.CreateDirectory(physicalPath);
@@ -94,7 +91,7 @@ namespace Kooboo.Common.Data.IsolatedStorage
 
         public void CreateFile(string path, Stream stream)
         {
-            string fullPath = Path.Combine(this.physicalPath, path);
+            string fullPath = Path.Combine(this.storagePath, path);
 
             var fileStream = File.Create(fullPath);
 
@@ -105,33 +102,33 @@ namespace Kooboo.Common.Data.IsolatedStorage
 
         public void DeleteDirectory(string dir)
         {
-            string fullPath = Path.Combine(this.physicalPath, dir);
+            string fullPath = Path.Combine(this.storagePath, dir);
             IOUtility.DeleteDirectory(fullPath, true);
         }
 
         public void DeleteFile(string file)
         {
-            string fullPath = Path.Combine(this.physicalPath, file);
+            string fullPath = Path.Combine(this.storagePath, file);
             File.Delete(fullPath);
         }
 
         public bool DirectoryExists(string path)
         {
-            string fullPath = Path.Combine(this.physicalPath, path);
+            string fullPath = Path.Combine(this.storagePath, path);
 
             return Directory.Exists(fullPath);
         }
 
         public bool FileExists(string path)
         {
-            string fullPath = Path.Combine(this.physicalPath, path);
+            string fullPath = Path.Combine(this.storagePath, path);
 
             return File.Exists(fullPath);
         }
 
         public DateTimeOffset GetCreationTimeUtc(string path)
         {
-            string fullPath = Path.Combine(this.physicalPath, path);
+            string fullPath = Path.Combine(this.storagePath, path);
 
             if (File.Exists(fullPath))
             {
@@ -150,12 +147,12 @@ namespace Kooboo.Common.Data.IsolatedStorage
 
         public string[] GetDirectoryNames(string path, string searchPattern)
         {
-            var fullPath = this.physicalPath;
+            var fullPath = this.storagePath;
             if (!string.IsNullOrEmpty(path))
             {
-                fullPath = Path.Combine(this.physicalPath, path);
+                fullPath = Path.Combine(this.storagePath, path);
             }
-            if (Directory.Exists(this.physicalPath))
+            if (Directory.Exists(fullPath))
             {
                 IEnumerable<string> dirs;
                 if (string.IsNullOrEmpty(searchPattern))
@@ -168,7 +165,7 @@ namespace Kooboo.Common.Data.IsolatedStorage
                 }
 
 
-                return dirs.Select(it => it.Substring(fullPath.Length)).ToArray();
+                return dirs.Select(it => it.Substring(fullPath.Length + 1)).ToArray();
             }
             return new string[0];
         }
@@ -180,12 +177,12 @@ namespace Kooboo.Common.Data.IsolatedStorage
 
         public string[] GetFileNames(string path, string searchPattern)
         {
-            var fullPath = this.physicalPath;
+            var fullPath = this.storagePath;
             if (!string.IsNullOrEmpty(path))
             {
-                fullPath = Path.Combine(this.physicalPath, path);
+                fullPath = Path.Combine(this.storagePath, path);
             }
-            if (Directory.Exists(this.physicalPath))
+            if (Directory.Exists(fullPath))
             {
                 IEnumerable<string> dirs;
                 if (string.IsNullOrEmpty(searchPattern))
@@ -198,14 +195,14 @@ namespace Kooboo.Common.Data.IsolatedStorage
                 }
 
 
-                return dirs.Select(it => it.Substring(fullPath.Length)).ToArray();
+                return dirs.Select(it => it.Substring(fullPath.Length + 1)).ToArray();
             }
             return new string[0];
         }
 
         public DateTimeOffset GetLastAccessTimeUtc(string path)
         {
-            string fullPath = Path.Combine(this.physicalPath, path);
+            string fullPath = Path.Combine(this.storagePath, path);
 
             if (File.Exists(fullPath))
             {
@@ -219,7 +216,7 @@ namespace Kooboo.Common.Data.IsolatedStorage
 
         public DateTimeOffset GetLastWriteTimeUtc(string path)
         {
-            string fullPath = Path.Combine(this.physicalPath, path);
+            string fullPath = Path.Combine(this.storagePath, path);
 
             if (File.Exists(fullPath))
             {
@@ -233,16 +230,16 @@ namespace Kooboo.Common.Data.IsolatedStorage
 
         public void MoveDirectory(string sourceDirectoryName, string destinationDirectoryName)
         {
-            string fullSourceDirectoryName = Path.Combine(this.physicalPath, sourceDirectoryName);
-            string fullDestionationDirectoryName = Path.Combine(this.physicalPath, destinationDirectoryName);
+            string fullSourceDirectoryName = Path.Combine(this.storagePath, sourceDirectoryName);
+            string fullDestionationDirectoryName = Path.Combine(this.storagePath, destinationDirectoryName);
 
             Directory.Move(fullSourceDirectoryName, fullDestionationDirectoryName);
         }
 
         public void MoveFile(string sourceFileName, string destinationFileName)
         {
-            string fullSourceFileName = Path.Combine(this.physicalPath, sourceFileName);
-            string fullDestionationFileName = Path.Combine(this.physicalPath, destinationFileName);
+            string fullSourceFileName = Path.Combine(this.storagePath, sourceFileName);
+            string fullDestionationFileName = Path.Combine(this.storagePath, destinationFileName);
 
             Directory.Move(fullSourceFileName, fullDestionationFileName);
         }
@@ -259,7 +256,7 @@ namespace Kooboo.Common.Data.IsolatedStorage
 
         public IsolatedStorageFileStream OpenFile(string path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share)
         {
-            string fullPath = Path.Combine(this.physicalPath, path);
+            string fullPath = Path.Combine(this.storagePath, path);
 
             var storageFileStream = new IsolatedStorageFileStream();
             storageFileStream.StorageFile = new IsolatedStorageFile(Path.GetFileName(path), path, this.Name);
@@ -267,6 +264,7 @@ namespace Kooboo.Common.Data.IsolatedStorage
             {
                 var memoryStream = new MemoryStream();
                 fileStream.CopyTo(memoryStream);
+                memoryStream.Position = 0;
                 storageFileStream.Stream = memoryStream;
             }
             return storageFileStream;
@@ -274,7 +272,7 @@ namespace Kooboo.Common.Data.IsolatedStorage
 
         public void SaveFile(IsolatedStorageFileStream storageFileStream)
         {
-            var fullPath = Path.Combine(this.physicalPath, storageFileStream.StorageFile.FilePath);
+            var fullPath = Path.Combine(this.storagePath, storageFileStream.StorageFile.FilePath);
 
             using (storageFileStream.Stream)
             {
