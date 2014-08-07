@@ -50,7 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="IsolatedStorage\DiskIsolateStorageTests.cs" />
+    <Compile Include="IsolatedStorage\DiskIsolatedStorageTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

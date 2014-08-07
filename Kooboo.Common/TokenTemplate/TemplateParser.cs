@@ -6,6 +6,7 @@
 // See the file LICENSE.txt for details.
 // 
 #endregion
+using Kooboo.Common.ObjectContainer.Dependency;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace Kooboo.Common.TokenTemplate
     /// <summary>    
     /// Refact from Kooboo.CMS.Common.Formula.FormulaParser
     /// </summary>    
+    [Dependency(typeof(ITemplateParser))]
     public class TemplateParser : ITemplateParser
     {
         public virtual string Merge(string template, IValueProvider valueProvider)

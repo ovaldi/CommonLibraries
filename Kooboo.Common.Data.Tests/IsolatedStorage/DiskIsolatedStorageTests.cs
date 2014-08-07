@@ -18,9 +18,18 @@ using System.Threading.Tasks;
 namespace Kooboo.Common.Data.Tests.IsolatedStorage
 {
     [TestClass]
-    public class DiskIsolateStorageTests
+    public class DiskIsolatedStorageTests
     {
-        string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+        string baseDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "IsolatedStorage");
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            if (Directory.Exists(baseDirectory))
+            {
+                Directory.Delete(baseDirectory, true);
+            }
+            Directory.CreateDirectory(baseDirectory);
+        }
 
         [TestMethod]
         public void Test_Name()
@@ -62,10 +71,9 @@ namespace Kooboo.Common.Data.Tests.IsolatedStorage
         public void Test_InitStore()
         {
             var storeName = Guid.NewGuid().ToString();
-            var storage = new DiskIsolateStorage(storeName, baseDirectory);
+            var storePath = Path.Combine(baseDirectory, storeName);
+            var storage = new DiskIsolateStorage(storePath, storePath);
             storage.InitStore();
-
-            string storePath = Path.Combine(baseDirectory, storeName);
 
             Assert.IsTrue(Directory.Exists(storePath));
         }
@@ -74,10 +82,11 @@ namespace Kooboo.Common.Data.Tests.IsolatedStorage
         public void Test_Remove()
         {
             var storeName = Guid.NewGuid().ToString();
-            var storage = new DiskIsolateStorage(storeName, baseDirectory);
-            storage.Remove();
+            var storePath = Path.Combine(baseDirectory, storeName);
+            var storage = new DiskIsolateStorage(storeName, storePath);
 
-            string storePath = Path.Combine(baseDirectory, storeName);
+            storage.InitStore();
+            storage.Remove();
 
             Assert.IsFalse(Directory.Exists(storePath));
         }
@@ -85,39 +94,42 @@ namespace Kooboo.Common.Data.Tests.IsolatedStorage
         [TestMethod]
         public void Test_CopyfFile_No_OverWrite()
         {
-            var storage = new DiskIsolateStorage("Test", baseDirectory);
+            var storeName = Guid.NewGuid().ToString();
+            var storePath = Path.Combine(baseDirectory, storeName);
+            var storage = new DiskIsolateStorage(storeName, storePath);
+
             storage.InitStore();
-            string storePath = Path.Combine(baseDirectory, "Test");
 
             string sourceFileName = "a.txt";
-            string destinationFileName="b.txt";
+            string destinationFileName = "b.txt";
 
-            string sourcePath = Path.Combine(storePath,sourceFileName);
-            string destinationPath = Path.Combine(storePath,destinationFileName);
+            string sourcePath = Path.Combine(storePath, sourceFileName);
+            string destinationPath = Path.Combine(storePath, destinationFileName);
 
             //创建一个源文件
             if (File.Exists(sourcePath))
             {
                 File.Delete(sourcePath);
             }
-            FileStream fs = new FileStream(sourcePath,FileMode.CreateNew);
-            StreamWriter sw = new StreamWriter(fs);
-            sw.Write("This is a.text");
-            sw.Close();
-            fs.Close();
-
+            using (FileStream fs = new FileStream(sourcePath, FileMode.CreateNew))
+            {
+                using (StreamWriter sw = new StreamWriter(fs))
+                {
+                    sw.Write("This is a.text");
+                }
+            }
 
             if (File.Exists(destinationPath))
             {
                 File.Delete(destinationPath);
             }
-            storage.CopyFile(sourceFileName,destinationFileName);
+            storage.CopyFile(sourceFileName, destinationFileName);
 
             Assert.IsTrue(File.Exists(destinationPath));
         }
 
         [TestMethod]
-        public void Test_CopyfFile_OverWrite()
+        public void Test_CopyFile_OverWrite()
         {
             var storage = new DiskIsolateStorage("Test", baseDirectory);
             storage.InitStore();
@@ -154,7 +166,7 @@ namespace Kooboo.Common.Data.Tests.IsolatedStorage
 
             if (File.Exists(destinationPath))
             {
-                storage.CopyFile(sourceFileName, destinationFileName,true);
+                storage.CopyFile(sourceFileName, destinationFileName, true);
             }
 
             //判断目标文件是否被重写
@@ -180,7 +192,7 @@ namespace Kooboo.Common.Data.Tests.IsolatedStorage
             string dir = "Test" + Guid.NewGuid().ToString();
             storage.CreateDirectory(dir);
 
-            string dirPath = Path.Combine(storePath,dir);
+            string dirPath = Path.Combine(storePath, dir);
             Assert.IsTrue(Directory.Exists(dirPath));
         }
 
@@ -196,11 +208,11 @@ namespace Kooboo.Common.Data.Tests.IsolatedStorage
             byte[] buffer = Encoding.Default.GetBytes(testString);
             stream.Write(buffer, 0, 18);
 
-            var filePath = Guid.NewGuid().ToString()+".txt";
+            var filePath = Guid.NewGuid().ToString() + ".txt";
 
             storage.CreateFile(filePath, stream);
 
-            var filePhysicalPath = Path.Combine(storePath,filePath);
+            var filePhysicalPath = Path.Combine(storePath, filePath);
             Assert.IsTrue(File.Exists(filePhysicalPath));
         }
 
@@ -234,7 +246,7 @@ namespace Kooboo.Common.Data.Tests.IsolatedStorage
             stream.Write(buffer, 0, 18);
             var filePath = Guid.NewGuid().ToString() + ".txt";
             storage.CreateFile(filePath, stream);
-            
+
 
             storage.DeleteFile(filePath);
             var filePhysicalPath = Path.Combine(storePath, filePath);
@@ -320,7 +332,7 @@ namespace Kooboo.Common.Data.Tests.IsolatedStorage
             var storage = new DiskIsolateStorage("Test", baseDirectory);
             storage.InitStore();
             string storePath = Path.Combine(baseDirectory, "Test");
-            
+
             //删除Test目录下的所以文件和文件夹
             string[] strDirs = Directory.GetDirectories(storePath);
             string[] strFiles = Directory.GetFiles(storePath);
@@ -332,13 +344,13 @@ namespace Kooboo.Common.Data.Tests.IsolatedStorage
             //创建多个目录
             for (int i = 0; i < 5; i++)
             {
-                storage.CreateDirectory("Dir/Di_"+Guid.NewGuid().ToString());
+                storage.CreateDirectory("Dir/Di_" + Guid.NewGuid().ToString());
                 string dir = "Dir_" + Guid.NewGuid().ToString();
                 storage.CreateDirectory(dir);
             }
-            
+
             var result1 = storage.GetDirectoryNames("Dir");
-            var result2 = storage.GetDirectoryNames(null,"Dir_*");
+            var result2 = storage.GetDirectoryNames(null, "Dir_*");
             var result3 = storage.GetDirectoryNames("Dir", "Di_*");
 
             Assert.AreEqual(5, result1.Count());
@@ -370,7 +382,7 @@ namespace Kooboo.Common.Data.Tests.IsolatedStorage
             {
                 var fileName = Guid.NewGuid().ToString() + ".txt";
                 storage.CreateDirectory("fDir");
-                storage.CreateFile("fDir/"+fileName, stream);
+                storage.CreateFile("fDir/" + fileName, stream);
                 storage.CreateFile(fileName, stream);
             }
 
@@ -469,9 +481,9 @@ namespace Kooboo.Common.Data.Tests.IsolatedStorage
             storage.CreateDirectory("dir2");
 
             //把dir2移到dir1中
-            storage.MoveDirectory("dir2","dir1/dir2");
+            storage.MoveDirectory("dir2", "dir1/dir2");
 
-            var resultPath = Path.Combine(storePath,"dir1/dir2");
+            var resultPath = Path.Combine(storePath, "dir1/dir2");
 
             Assert.IsTrue(Directory.Exists(resultPath));
         }
@@ -499,7 +511,7 @@ namespace Kooboo.Common.Data.Tests.IsolatedStorage
             stream.Write(buffer, 0, 18);
             storage.CreateFile("file.txt", stream);
 
-            storage.MoveFile("file.txt","dir/file.txt");
+            storage.MoveFile("file.txt", "dir/file.txt");
 
             var resultPath = Path.Combine(storePath, "dir/file.txt");
 
@@ -529,7 +541,7 @@ namespace Kooboo.Common.Data.Tests.IsolatedStorage
             storage.CreateFile("file.txt", stream);
 
             //获取文件名、文件路径。。
-            var of = storage.OpenFile("file.txt",FileMode.Open);
+            var of = storage.OpenFile("file.txt", FileMode.Open);
             var fileName = of.StorageFile.FileName;
             var filePath = of.StorageFile.FilePath;
             var storageName = of.StorageFile.StorageName;
@@ -537,7 +549,7 @@ namespace Kooboo.Common.Data.Tests.IsolatedStorage
             //读取文件内容
             byte[] bytes = new byte[of.Stream.Length];
             UTF8Encoding temp = new UTF8Encoding(true);
-            of.Stream.Seek(0,SeekOrigin.Begin);
+            of.Stream.Seek(0, SeekOrigin.Begin);
             of.Stream.Read(bytes, 0, bytes.Length);
             string readStr = temp.GetString(bytes);
 
@@ -551,11 +563,11 @@ namespace Kooboo.Common.Data.Tests.IsolatedStorage
             var of1 = storage.OpenFile("file.txt", FileMode.Open);
             byte[] b = new byte[of1.Stream.Length];
             UTF8Encoding temp1 = new UTF8Encoding(true);
-            of1.Stream.Seek(0,SeekOrigin.Begin);
+            of1.Stream.Seek(0, SeekOrigin.Begin);
             of1.Stream.Read(b, 0, b.Length);
             string readStr1 = temp1.GetString(b);
 
-            Assert.AreEqual("file.txt",fileName);
+            Assert.AreEqual("file.txt", fileName);
             Assert.AreEqual("file.txt", filePath);
             Assert.AreEqual("Test", storageName);
             Assert.AreEqual(testString, readStr);
