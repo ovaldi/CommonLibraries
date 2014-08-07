@@ -26,7 +26,7 @@ namespace Kooboo.Common.Web.Button
         /// GetMvcRoute==null 是，托管提交动作
         /// 否则，生成一个提交地址
         /// </summary>
-        MvcRoute GetMvcRoute(ControllerContext controllerContext);
+        MvcRoute GetMvcRoute(ControllerContext controllerContext, object dataContext);
 
         /// <summary>
         /// 执行Topbar plugin
