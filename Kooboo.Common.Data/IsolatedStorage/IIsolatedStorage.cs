@@ -64,7 +64,6 @@ namespace Kooboo.Common.Data.IsolatedStorage
         IsolatedStorageFileStream OpenFile(string path, FileMode mode, FileAccess access);
         IsolatedStorageFileStream OpenFile(string path, FileMode mode, FileAccess access, FileShare share);
 
-        void SaveFile(IsolatedStorageFileStream storageFileStream);
-
+        void UpdateFile(string path, Stream stream);
     }
 }

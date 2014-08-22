@@ -232,6 +232,23 @@ namespace Kooboo.Common.Data.Tests.IsolatedStorage
             Assert.IsFalse(Directory.Exists(dirPath));
         }
 
+        public void Test_Create_SubDir()
+        {
+            var storage = new DiskIsolateStorage("Test", baseDirectory);
+            storage.InitStore();
+
+            string dir = "Test_Create_SubDir" + Guid.NewGuid().ToString();
+            string subDir = Path.Combine(dir, "Sub");
+
+            storage.CreateDirectory(subDir);
+
+            Assert.IsTrue(storage.DirectoryExists(subDir));
+
+            storage.DeleteDirectory(subDir);
+
+            Assert.IsFalse(storage.DirectoryExists(subDir));
+        }
+
         [TestMethod]
         public void Test_DeleteFile()
         {
@@ -521,9 +538,9 @@ namespace Kooboo.Common.Data.Tests.IsolatedStorage
         [TestMethod]
         public void Test_OpenFile_SaveFile()
         {
-            var storage = new DiskIsolateStorage("Test", baseDirectory);
-            storage.InitStore();
             string storePath = Path.Combine(baseDirectory, "Test");
+            var storage = new DiskIsolateStorage("Test", storePath);
+            storage.InitStore();
 
             //删除Test目录下的所以文件和文件夹
             string[] strDirs = Directory.GetDirectories(storePath);
@@ -533,45 +550,50 @@ namespace Kooboo.Common.Data.Tests.IsolatedStorage
             foreach (var dir in strDirs)
                 Directory.Delete(dir, true);
 
+            var fileName = "file.txt";
             //创建文件
             string testString = "This is teststring";
             MemoryStream stream = new MemoryStream();
             byte[] buffer = UTF8Encoding.Default.GetBytes(testString);
             stream.Write(buffer, 0, buffer.Length);
-            storage.CreateFile("file.txt", stream);
+            storage.CreateFile(fileName, stream);
 
             //获取文件名、文件路径。。
-            var of = storage.OpenFile("file.txt", FileMode.Open);
-            var fileName = of.StorageFile.FileName;
-            var filePath = of.StorageFile.FilePath;
-            var storageName = of.StorageFile.StorageName;
+            using (var of = storage.OpenFile(fileName, FileMode.Open))
+            {
+                var filePath = of.StorageFile.FilePath;
+                var storageName = of.StorageFile.StorageName;
 
-            //读取文件内容
-            byte[] bytes = new byte[of.Stream.Length];
-            UTF8Encoding temp = new UTF8Encoding(true);
-            of.Stream.Seek(0, SeekOrigin.Begin);
-            of.Stream.Read(bytes, 0, bytes.Length);
-            string readStr = temp.GetString(bytes);
-
+                //读取文件内容
+                byte[] bytes = new byte[of.Stream.Length];
+                UTF8Encoding temp = new UTF8Encoding(true);
+                of.Stream.Seek(0, SeekOrigin.Begin);
+                of.Stream.Read(bytes, 0, bytes.Length);
+                string readStr = temp.GetString(bytes);
+                Assert.AreEqual(testString, readStr);
+            }
             //写文件并保存
             string writeString = "This is another teststring";
             byte[] buffer1 = UTF8Encoding.Default.GetBytes(writeString);
-            of.Stream.Write(buffer1, 0, buffer1.Length);
-            storage.SaveFile(of);
+            using (var memoryStream = new MemoryStream(buffer1))
+            {
+                storage.UpdateFile(fileName, memoryStream);
+            }
 
             //再读取文件内容
-            var of1 = storage.OpenFile("file.txt", FileMode.Open);
-            byte[] b = new byte[of1.Stream.Length];
-            UTF8Encoding temp1 = new UTF8Encoding(true);
-            of1.Stream.Seek(0, SeekOrigin.Begin);
-            of1.Stream.Read(b, 0, b.Length);
-            string readStr1 = temp1.GetString(b);
+            using (var of1 = storage.OpenFile("file.txt", FileMode.Open))
+            {
+                byte[] b = new byte[of1.Stream.Length];
+                UTF8Encoding temp1 = new UTF8Encoding(true);
+                of1.Stream.Seek(0, SeekOrigin.Begin);
+                of1.Stream.Read(b, 0, b.Length);
+                string readStr1 = temp1.GetString(b);
 
-            Assert.AreEqual("file.txt", fileName);
-            Assert.AreEqual("file.txt", filePath);
-            Assert.AreEqual("Test", storageName);
-            Assert.AreEqual(testString, readStr);
-            Assert.AreEqual(testString + writeString, readStr1);
+                Assert.AreEqual(writeString, readStr1);
+            }
+
+
+
         }
     }
 }

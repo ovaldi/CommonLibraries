@@ -83,15 +83,15 @@ namespace Kooboo.Common.Data.IsolatedStorage
         public void CreateDirectory(string dir)
         {
             var physicalPath = Path.Combine(this.storagePath, dir);
-            if (!Directory.Exists(physicalPath))
-            {
-                Directory.CreateDirectory(physicalPath);
-            }
+            IOUtility.EnsureDirectoryExists(physicalPath);
         }
 
         public void CreateFile(string path, Stream stream)
         {
             string fullPath = Path.Combine(this.storagePath, path);
+
+            var dir = Path.GetDirectoryName(fullPath);
+            IOUtility.EnsureDirectoryExists(dir);
 
             var fileStream = File.Create(fullPath);
 
@@ -258,6 +258,12 @@ namespace Kooboo.Common.Data.IsolatedStorage
         {
             string fullPath = Path.Combine(this.storagePath, path);
 
+            var dir = Path.GetDirectoryName(fullPath);
+            if (mode == FileMode.Create || mode == FileMode.CreateNew || mode == FileMode.OpenOrCreate)
+            {
+                IOUtility.EnsureDirectoryExists(dir);
+            }
+
             var storageFileStream = new IsolatedStorageFileStream();
             storageFileStream.StorageFile = new IsolatedStorageFile(Path.GetFileName(path), path, this.Name);
             using (var fileStream = File.Open(fullPath, mode, access, share))
@@ -270,17 +276,11 @@ namespace Kooboo.Common.Data.IsolatedStorage
             return storageFileStream;
         }
 
-        public void SaveFile(IsolatedStorageFileStream storageFileStream)
+        public void UpdateFile(string path, Stream stream)
         {
-            var fullPath = Path.Combine(this.storagePath, storageFileStream.StorageFile.FilePath);
-
-            using (storageFileStream.Stream)
-            {
-                var fileStream = File.Open(fullPath, FileMode.OpenOrCreate);
-                storageFileStream.Stream.Position = 0;
-                storageFileStream.Stream.CopyTo(fileStream);
-                fileStream.Close();
-            }
+            stream.Position = 0;
+            var fullPath = Path.Combine(this.storagePath, path);
+            File.WriteAllBytes(fullPath, stream.ReadData());
         }
 
         public void Dispose()
