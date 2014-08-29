@@ -7,6 +7,7 @@
 // 
 #endregion
 using Kooboo.Common.ObjectContainer;
+using Kooboo.Common.ObjectContainer.Dependency;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ using System.Web.Mvc;
 
 namespace Kooboo.Common.Web.ObjectContainer.Mvc
 {
+    [Dependency(typeof(Kooboo.Common.Web.IHttpApplicationEvents), Key = "MvcModule")]
     public class MvcModule : HttpApplicationEvents
     {
         public override void Application_Start(object sender, EventArgs e)
@@ -28,10 +30,10 @@ namespace Kooboo.Common.Web.ObjectContainer.Mvc
         private static void RemoveDefaultAttributeFilterProvider()
         {
             var oldFilter = FilterProviders.Providers.SingleOrDefault(f => f is FilterAttributeFilterProvider);
-            if (oldFilter!=null)
+            if (oldFilter != null)
             {
                 FilterProviders.Providers.Remove(oldFilter);
-            }            
+            }
         }
     }
 }

@@ -38,6 +38,10 @@ namespace Kooboo.Common.Web.Menu
         public bool Visible { get; set; }
         public string Area { get; set; }
 
+        /// <summary>
+        /// 菜单旁边的小标记，如果一些数量值得tips
+        /// </summary>
+        public Badge Badge { get; set; }
 
         private bool localizable = true;
         public virtual bool Localizable { get { return localizable; } set { localizable = value; } }

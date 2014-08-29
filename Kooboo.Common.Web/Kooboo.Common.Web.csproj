@@ -107,6 +107,7 @@
     <Compile Include="IHtmlStringComparer.cs" />
     <Compile Include="JsonHelper.cs" />
     <Compile Include="JsonResultData.cs" />
+    <Compile Include="Menu\Badge.cs" />
     <Compile Include="Menu\IMenuInjection.cs" />
     <Compile Include="Menu\MenuFactory.cs" />
     <Compile Include="Menu\MenuTemplate.cs" />
