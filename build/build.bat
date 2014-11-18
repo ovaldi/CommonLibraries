@@ -13,5 +13,9 @@ copy ..\Kooboo.Common.Web\bin\Release\Kooboo.Common.Web.* Bin\
 
 copy ..\Kooboo.Common.Windows\bin\Release\Kooboo.Common.Windows.* Bin\
 
+copy ..\Kooboo.Common.ObjectContainer.Ninject\bin\Release\Kooboo.Common.ObjectContainer.Ninject.* Bin\
+
+copy ..\Kooboo.Common.ObjectContainer.Ninject\bin\Release\Ninject.* Bin\
+
 
 @pause

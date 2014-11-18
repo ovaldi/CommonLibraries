@@ -5,4 +5,5 @@ nuget pack ..\Kooboo.Common.Web\Kooboo.Common.Web.csproj -Prop Configuration=Rel
 nuget pack ..\Kooboo.Common.Windows\Kooboo.Common.Windows.csproj -Prop Configuration=Release
 nuget pack ..\Kooboo.Common.CachingSync.Azure\Kooboo.Common.CachingSync.Azure.csproj -Prop Configuration=Release
 nuget pack ..\Kooboo.Common.CachingSync.Http\Kooboo.Common.CachingSync.Http.csproj -Prop Configuration=Release
+nuget pack ..\Kooboo.Common.ObjectContainer.Ninject\Kooboo.Common.ObjectContainer.Ninject.csproj -Prop Configuration=Release
 @pause

@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kooboo.Common.CachingSync.A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kooboo.Common.Data.Tests", "Kooboo.Common.Data.Tests\Kooboo.Common.Data.Tests.csproj", "{2E850B60-2738-46A5-B25D-688CA55069EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kooboo.Common.ObjectContainer.Ninject", "Kooboo.Common.ObjectContainer.Ninject\Kooboo.Common.ObjectContainer.Ninject.csproj", "{94A4A4BA-F5EB-44CB-9CD3-B240B80CE686}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{2E850B60-2738-46A5-B25D-688CA55069EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E850B60-2738-46A5-B25D-688CA55069EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E850B60-2738-46A5-B25D-688CA55069EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94A4A4BA-F5EB-44CB-9CD3-B240B80CE686}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94A4A4BA-F5EB-44CB-9CD3-B240B80CE686}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94A4A4BA-F5EB-44CB-9CD3-B240B80CE686}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94A4A4BA-F5EB-44CB-9CD3-B240B80CE686}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,5 +74,6 @@ Global
 		{6F930555-4FB4-4D25-80DD-67EB31C0B6FB} = {6D625141-E10E-40EE-8C80-8F8126B5C940}
 		{D388AD41-63AF-43B2-A85D-4A1C07722B44} = {6D625141-E10E-40EE-8C80-8F8126B5C940}
 		{C306BD6A-92BA-48F9-A7E8-A419930EC2AD} = {6D625141-E10E-40EE-8C80-8F8126B5C940}
+		{94A4A4BA-F5EB-44CB-9CD3-B240B80CE686} = {6D625141-E10E-40EE-8C80-8F8126B5C940}
 	EndGlobalSection
 EndGlobal
